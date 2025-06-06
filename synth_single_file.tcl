@@ -1,11 +1,11 @@
 # Add all required VHDL files (main file first, then dependencies)
-read_vhdl RTLBoriSoC.srcs/sources_1/new/adder.vhd
+read_vhdl RTLBoriSoC.srcs/sources_1/new/signext.vhd
 
-# Synthesize the top-level entity (change 'adder' if needed)
-synth_design -top ./RTLBoriSoC.srcs/sources_1/new/addr.vhd
+# Synthesize the top-level entity (change 'signext' if needed)
+synth_design -top signext -part xc7a100tcsg324-1
 
 # Optional: write a report
-report_utilization -file adder_util.rpt
-report_timing_summary -file adder_timing.rpt
+report_utilization -file signext_util.rpt
+report_timing_summary -file signext_timing.rpt
 
 exit

@@ -1,0 +1,407 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Jun  4 22:58:23 2025
+# Process ID         : 25288
+# Current directory  : C:/Users/ceran/Documents/RTLBoriSoC
+# Command line       : vivado.exe -mode batch -source run_project.tcl
+# Log file           : C:/Users/ceran/Documents/RTLBoriSoC/vivado.log
+# Journal file       : C:/Users/ceran/Documents/RTLBoriSoC\vivado.jou
+# Running On         : DESKTOP-2D1SHBR
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 22621
+# Processor Detail   : Intel(R) Core(TM) i7-5820K CPU @ 3.30GHz
+# CPU Frequency      : 3298 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 17086 MB
+# Swap memory        : 1791 MB
+# Total Virtual      : 18877 MB
+# Available Virtual  : 3887 MB
+#-----------------------------------------------------------
+source run_project.tcl
+# open_project RTLBoriSoC.xpr
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 621.379 ; gain = 191.793
+# add_files RTLBoriSoC.srcs/sources_1/new/adder.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/adder.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/MUX.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/signext.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/zeroext.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/SLLf.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SLLf.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/SRLf.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SRLf.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/SRAf.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SRAf.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/ORf.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ORf.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/XORf.vhd
+# add_files RTLBoriSoC.srcs/sources_1/new/ANDf.vhd
+# set_property source_mgmt_mode DisplayOnly [current_project]
+# set_property top ALUdp [get_filesets sources_1]
+# reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/utils_1/imports/synth_1/MUX.dcp with file C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/ALUdp.dcp
+# launch_runs synth_1 -jobs 6
+[Wed Jun  4 22:58:37 2025] Launched synth_1...
+Run output will be captured here: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/runme.log
+# wait_on_run synth_1
+[Wed Jun  4 22:58:38 2025] Waiting for synth_1 to finish...
+
+*** Running vivado
+    with args -log ALUdp.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ALUdp.tcl
+
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Wed Jun  4 22:58:41 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source ALUdp.tcl -notrace
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 618.844 ; gain = 187.945
+Command: read_checkpoint -auto_incremental -incremental C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/utils_1/imports/synth_1/MUX.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/utils_1/imports/synth_1/MUX.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top ALUdp -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 4724
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1097.062 ; gain = 466.484
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-9112] actual for formal port 'datain' is neither a static name nor a globally static expression [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:162]
+WARNING: [Synth 8-9112] actual for formal port 'datain' is neither a static name nor a globally static expression [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:176]
+INFO: [Synth 8-638] synthesizing module 'ALUdp' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:36]
+	Parameter N bound to: 3 - type: integer 
+INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:17' bound to instance 'mux_res' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:156]
+INFO: [Synth 8-638] synthesizing module 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:29]
+	Parameter N bound to: 3 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'MUX' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:29]
+	Parameter N bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:17' bound to instance 'mux_imm' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:170]
+INFO: [Synth 8-638] synthesizing module 'MUX__parameterized1' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:29]
+	Parameter N bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'MUX__parameterized1' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:29]
+	Parameter w bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'signext' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:7' bound to instance 'signext12_inst' of component 'signext' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:180]
+INFO: [Synth 8-638] synthesizing module 'signext' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:17]
+	Parameter w bound to: 12 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'signext' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:17]
+	Parameter w bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'signext' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:7' bound to instance 'signext20_inst' of component 'signext' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:188]
+INFO: [Synth 8-638] synthesizing module 'signext__parameterized1' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:17]
+	Parameter w bound to: 20 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'signext__parameterized1' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:17]
+	Parameter w bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'zeroext' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd:6' bound to instance 'zeroext12_inst' of component 'zeroext' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:197]
+INFO: [Synth 8-638] synthesizing module 'zeroext' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd:16]
+	Parameter w bound to: 12 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'zeroext' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd:16]
+INFO: [Synth 8-3491] module 'adder' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/adder.vhd:8' bound to instance 'adder_inst' of component 'adder' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:215]
+INFO: [Synth 8-638] synthesizing module 'adder' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/adder.vhd:17]
+INFO: [Synth 8-226] default block is never used [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/adder.vhd:28]
+WARNING: [Synth 8-614] signal 'subtr' is read in the process but is not in the sensitivity list [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/adder.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'adder' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/adder.vhd:17]
+INFO: [Synth 8-3491] module 'SLLf' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SLLf.vhd:5' bound to instance 'SLLf_inst' of component 'SLLf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:223]
+INFO: [Synth 8-638] synthesizing module 'SLLf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SLLf.vhd:12]
+INFO: [Synth 8-256] done synthesizing module 'SLLf' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SLLf.vhd:12]
+INFO: [Synth 8-3491] module 'SRAf' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SRAf.vhd:5' bound to instance 'SRAf_inst' of component 'SRAf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:230]
+INFO: [Synth 8-638] synthesizing module 'SRAf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SRAf.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'SRAf' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SRAf.vhd:13]
+INFO: [Synth 8-3491] module 'SLLf' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SLLf.vhd:5' bound to instance 'SRLf_inst' of component 'SLLf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:237]
+INFO: [Synth 8-3491] module 'XORf' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/XORf.vhd:5' bound to instance 'XORf_inst' of component 'XORf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:244]
+INFO: [Synth 8-638] synthesizing module 'XORf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/XORf.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'XORf' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/XORf.vhd:13]
+INFO: [Synth 8-3491] module 'ANDf' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ANDf.vhd:5' bound to instance 'ANDf_inst' of component 'ANDf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:250]
+INFO: [Synth 8-638] synthesizing module 'ANDf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ANDf.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'ANDf' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ANDf.vhd:13]
+INFO: [Synth 8-3491] module 'ORf' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ORf.vhd:5' bound to instance 'ORf_inst' of component 'ORf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:256]
+INFO: [Synth 8-638] synthesizing module 'ORf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ORf.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'ORf' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ORf.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'ALUdp' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:36]
+WARNING: [Synth 8-3848] Net op1 in module/entity ALUdp does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:37]
+WARNING: [Synth 8-3848] Net op2 in module/entity ALUdp does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:38]
+WARNING: [Synth 8-7129] Port r1[31] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[30] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[29] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[28] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[27] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[26] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[25] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[24] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[23] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[22] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[21] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[20] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[19] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[18] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[17] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[16] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[15] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[14] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[13] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[12] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[11] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[10] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[9] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[8] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[7] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[6] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[5] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[4] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[3] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[2] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[1] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[0] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[31] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[30] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[29] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[28] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[27] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[26] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[25] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[24] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[23] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[22] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[21] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[20] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[19] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[18] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[17] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[16] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[15] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[14] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[13] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[12] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[11] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[10] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[9] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[8] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[7] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[6] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[5] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[4] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[3] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[2] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[1] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r2[0] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port imm[20] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[8] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[7] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[6] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[5] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[4] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[3] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port branch in module ALUdp is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1203.875 ; gain = 573.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1203.875 ; gain = 573.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1203.875 ; gain = 573.297
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1203.875 ; gain = 573.297
+---------------------------------------------------------------------------------
+INFO: [Synth 8-223] decloning instance 'SLLf_inst' (SLLf) to 'SRLf_inst'
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Muxes : 
+	   4 Input   32 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port r1[31] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[30] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[29] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[28] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[27] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[26] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[25] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[24] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[23] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[22] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[21] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[20] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[19] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[18] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[17] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[16] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[15] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[14] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[13] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[12] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[11] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[10] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[9] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[8] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[7] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[6] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[5] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port r1[4] in module ALUdp is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1380.016 ; gain = 749.438
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1394.801 ; gain = 764.223
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1394.801 ; gain = 764.223
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1596.637 ; gain = 966.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1596.637 ; gain = 966.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1596.637 ; gain = 966.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1596.637 ; gain = 966.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1596.637 ; gain = 966.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1596.637 ; gain = 966.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT3 |     1|
+|2     |IBUF |     3|
+|3     |OBUF |    32|
++------+-----+------+
+
+Report Instance Areas: 
++------+----------+-------+------+
+|      |Instance  |Module |Cells |
++------+----------+-------+------+
+|1     |top       |       |    36|
+|2     |  mux_res |MUX    |     1|
++------+----------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1596.637 ; gain = 966.059
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 172 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1596.637 ; gain = 966.059
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1596.637 ; gain = 966.059
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1611.715 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1725.051 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 8f31439
+INFO: [Common 17-83] Releasing license: Synthesis
+53 Infos, 106 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:24 . Memory (MB): peak = 1725.051 ; gain = 1100.684
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1725.051 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/ALUdp.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file ALUdp_utilization_synth.rpt -pb ALUdp_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Jun  4 22:59:18 2025...
+[Wed Jun  4 22:59:23 2025] synth_1 finished
+wait_on_runs: Time (s): cpu = 00:00:00 ; elapsed = 00:00:45 . Memory (MB): peak = 626.105 ; gain = 0.000
+# report_timing_summary -file timing_summary.rpt
+ERROR: [Common 17-53] User Exception: No open design. Please open an elaborated, synthesized or implemented design before executing this command.
+INFO: [Common 17-206] Exiting Vivado at Wed Jun  4 22:59:23 2025...

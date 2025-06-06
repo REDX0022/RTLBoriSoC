@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1748967523" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/MUX.dcp">
-  <File Type="PA-TCL" Name="adder.tcl"/>
-  <File Type="REPORTS-TCL" Name="adder_reports.tcl"/>
-  <File Type="RDS-RDS" Name="adder.vds"/>
-  <File Type="RDS-PROPCONSTRS" Name="adder_drc_synth.rpt"/>
-  <File Type="RDS-UTIL" Name="adder_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="adder_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="adder.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="adder_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="adder_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1749119741" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/MUX.dcp">
+  <File Type="PA-TCL" Name="ALUdp.tcl"/>
+  <File Type="REPORTS-TCL" Name="ALUdp_reports.tcl"/>
+  <File Type="RDS-RDS" Name="ALUdp.vds"/>
+  <File Type="RDS-PROPCONSTRS" Name="ALUdp_drc_synth.rpt"/>
+  <File Type="RDS-UTIL" Name="ALUdp_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="ALUdp_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="ALUdp.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="ALUdp_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="ALUdp_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/MUX.vhd">
@@ -29,9 +29,63 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/ALUdp.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/signext.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/zeroext.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/SLLf.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/SRLf.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/SRAf.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/ORf.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/XORf.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/ANDf.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="adder"/>
+      <Option Name="TopModule" Val="ALUdp"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">

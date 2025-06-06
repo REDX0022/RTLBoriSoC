@@ -3,11 +3,11 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Tue Jun  3 18:18:47 2025
-# Process ID         : 2212
+# Start of session at: Thu Jun  5 12:35:45 2025
+# Process ID         : 28220
 # Current directory  : C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1
-# Command line       : vivado.exe -log adder.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source adder.tcl
-# Log file           : C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/adder.vds
+# Command line       : vivado.exe -log ALUdp.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ALUdp.tcl
+# Log file           : C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/ALUdp.vds
 # Journal file       : C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1\vivado.jou
 # Running On         : DESKTOP-2D1SHBR
 # Platform           : Windows Server 2016 or Windows 10
@@ -17,8 +17,8 @@
 # CPU Physical cores : 6
 # CPU Logical cores  : 12
 # Host memory        : 17086 MB
-# Swap memory        : 1529 MB
-# Total Virtual      : 18615 MB
-# Available Virtual  : 3110 MB
+# Swap memory        : 1178 MB
+# Total Virtual      : 18264 MB
+# Available Virtual  : 2465 MB
 #-----------------------------------------------------------
-source adder.tcl -notrace
+source ALUdp.tcl -notrace
