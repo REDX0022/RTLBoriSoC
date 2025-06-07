@@ -5,14 +5,10 @@ use IEEE.NUMERIC_STD.ALL;
 
 -- You must define a reusable array type for vector arrays
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
-
 
 entity MUX1 is
     generic (
-        N : natural;  -- 2 bits → 4 elements
+        N : natural  -- 2 bits → 4 elements
     );
     port (
         sel     : in std_logic_vector(N-1 downto 0); -- N-bit select

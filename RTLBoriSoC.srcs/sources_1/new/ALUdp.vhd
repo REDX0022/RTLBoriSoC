@@ -26,12 +26,16 @@ entity ALUdp is
         r2 : in std_logic_vector(31 downto 0);
         adder_r1_sp: in std_logic_vector(31 downto 0);
         adder_sp_sel: in std_logic;
+
         imm : in std_logic_vector(20 downto 0); --we are gonna use the same bus for all imms, the biggest one is 20 bits, also we need to sign extend it
         imm_sel: in std_logic_vector(1 downto 0); -- selector for immediate type, 00 for 12-bit signed, 01 for 12-bit unsigned, 10 for 20-bit signed, 11 for upper 20 bits unsigned, IMPORTANT: LSB is the sign selector(0 for signed 1 for signed)
         op : in std_logic_vector(8 downto 0); -- operation selector
         result : out std_logic_vector(31 downto 0);
-        subtr : in std_logic; -- flag to indicate if the operatioon is a subtraction, this might be poor design
-        branch: in std_logic -- flag to indicate if to use the address from the ALU or the PC increment
+        subtr : in std_logic; -- flag to indicate if the operatioon is a subtraction, this might be poor design, and also SRA
+        branch: out std_logic; -- flag to indicate if to use the address from the ALU or the PC increment
+        ALU_res_sel: in std_logic_vector(2 downto 0); -- selector for the ALU result, this is used to select the result of the ALU operation
+        op2_sel: in std_logic; -- ALU second operand selector, 0 for r2, 1 for immediate
+        branch_sel: in std_logic_vector(2 downto 0) -- selector for the branch operation, 0 for EQ, 1 for NE, 2 for LT, 3 for LTU, 4 for GE, 5 for LTU, 6 for GEU
     );
 end entity;
 
@@ -51,8 +55,7 @@ architecture RTL of ALUdp is
         
     signal adder_res: std_logic_vector(31 downto 0); -- result of the adder, this is not used in this ALU, but might be useful later
     signal sll_res: std_logic_vector(31 downto 0); -- result of the SLL operation, this is not used in this ALU, but might be useful later
-    signal srl_res: std_logic_vector(31 downto 0); -- result of the SRL operation, this is not used in this ALU, but might be useful later
-    signal sra_res: std_logic_vector(31 downto 0); -- result of the SRA operation, this is not used in this ALU, but might be useful later
+    signal sr_res: std_logic_vector(31 downto 0); -- result of the SRL operation, this is not used in this ALU, but might be useful later
     signal xor_res: std_logic_vector(31 downto 0); -- result of the XOR operation, this is not used in this ALU, but might be useful later
     signal and_res: std_logic_vector(31 downto 0); -- result of the AND operation, this is not used in this ALU, but might be useful later
     signal or_res: std_logic_vector(31 downto 0); -- result of the OR operation, this is not used in this ALU, but might be useful later
@@ -64,8 +67,22 @@ architecture RTL of ALUdp is
     signal cmp_LTU : std_logic;
     signal cmp_GEU : std_logic;
 
-    signal branch_ext: std_logic;
+    signal branch_ext: std_logic_vector(31 downto 0);
 
+    signal res_mux_in: vector_array(0 to 7); -- this is used to hold the results of the operations, this is a vector array for the MUX component
+
+    signal imm_mux_in: vector_array(0 to 3); -- this is used to hold the operands for the immediate MUX, this is a vector array for the MUX component
+
+    signal op2_imm_mux_in: vector_array(0 to 1); -- this is used to hold the operands for the second operand MUX, this is a vector array for the MUX component
+
+    signal adder_op_sel_mux_in: vector_array(0 to 1); -- this is used to hold the operands for the adder operation MUX, this is a vector array for the MUX component
+
+    signal adder_imm_sel_mux_in: vector_array(0 to 1); -- this is used to hold the operands for the adder immediate MUX, this is a vector array for the MUX component
+
+    signal branch_mux_in: std_logic_vector(0 to 7); -- input signals for the branch MUX1
+
+
+    signal branch_sig: std_logic; -- output signal for the branch MUX1, this is used to select the branch condition
 
     component MUX is
     generic (
@@ -81,7 +98,7 @@ architecture RTL of ALUdp is
 
     component MUX1 is
         generic (
-            N : natural;  -- 2 bits → 4 elements
+            N : natural  -- 2 bits → 4 elements
         );
         port (
             sel     : in std_logic_vector(N-1 downto 0); -- N-bit select
@@ -118,18 +135,12 @@ architecture RTL of ALUdp is
         );
     end component;
 
-    component SRAf is
+    
+    component SRf is
         port (
             a : in std_logic_vector(31 downto 0);
             shamt : in std_logic_vector(4 downto 0);
-            outp : out std_logic_vector(31 downto 0)
-        );
-    end component; 
-
-    component SRLf is
-        port (
-            a : in std_logic_vector(31 downto 0);
-            shamt : in std_logic_vector(4 downto 0);
+            is_arithmetic : in std_logic; -- flag to indicate if the shift is arithmetic or logical
             outp : out std_logic_vector(31 downto 0)
         );
     end component;
@@ -173,51 +184,72 @@ architecture RTL of ALUdp is
     
     component cmp is
         port(
-            a : in std_logic_vector(31 downto 0),
-            b : in std_logic_vector(31 downto 0),
-            EQ : out std_logic;
-            LT : out std_logic;
+            a : in std_logic_vector(31 downto 0);
+            b : in std_logic_vector(31 downto 0);
+            eq : out std_logic;
+            lt : out std_logic
         );
     end component;
 
 
-    component cmpU is
+    component cmpu is
         port(
-            a : in std_logic_vector(31 downto 0),
-            b : in std_logic_vector(31 downto 0),
-            LTU : out std_logic;
+            a : in std_logic_vector(31 downto 0);
+            b : in std_logic_vector(31 downto 0);
+            ltu : out std_logic
         );
     end component;
 
     begin
 
+    -- MUX for ALU result selection
     mux_res: MUX
         generic map (
             N => 3 -- 3 bits → 8 elements
         )
         port map (
-            sel => op(2 downto 0), -- 3-bit select for the operation
-            --the idea is for 010 SLT and 011 SLTU should go to two different comparisons, but in the end they do have something that makes sense
-            --OP type : ADD         SLL     SLT         SLTU        XOR         SRL     SRA     OR      AND this is 1 to 1 with the funct3, one less lut
-            --OPIMMSAME
-            --BRANCH   BEQ BNE BLT BGE BLTU BGEU
-            datain => (adder_res , sll_res, branch_ext ,branch_ext ,xor_res, srl_res, sra_res, or_res, and_res), --TODO: CHECK THE ORDER, also the last value is for SLT/U
-            dataout => result -- output to op1
+            sel => ALU_res_sel,
+            datain => res_mux_in,
+            dataout => result
         );
-    
-    --00 12 bit signed
-    --01 23 bit unsigned
-    --10 20 bit signed
-    --11 upper 20 bit unsigned, an implicit shift that needs to be done before the actuall ALU for speed
+    -- Assign the correct order to res_mux_in after the mux_res instance
+    res_mux_in(0) <= adder_res;
+    res_mux_in(1) <= branch_ext;
+    res_mux_in(2) <= branch_ext;
+    res_mux_in(3) <= xor_res;
+    res_mux_in(4) <= or_res;
+    res_mux_in(5) <= and_res;
+    res_mux_in(6) <= sll_res;
+    res_mux_in(7) <= sr_res;
+
+    -- MUX for op2 selection
+    mux_op2_imm: MUX
+        generic map (
+            N => 1
+        )
+        port map (
+            sel => to_slv(op2_sel), -- Convert std_logic to std_logic_vector(0 downto 0)
+            datain => op2_imm_mux_in,
+            dataout => op2
+        );
+    op2_imm_mux_in(0) <= r2;
+    op2_imm_mux_in(1) <= imm_extended;
+
+    -- MUX for immediate selection
     mux_imm : MUX
         generic map (
             N => 2
         )
         port map (
-            sel => imm_sel, -- if unsigned_flag is set, select r2, else select r1
-            datain => (imm12_signed, imm12_unsigned, imm20_signed, imm20_upper), --TODO: CHECK THE ORDER
+            sel => imm_sel,
+            datain => imm_mux_in,
             dataout => imm_extended
         );
+
+    imm_mux_in(0) <= imm12_signed; -- 12-bit signed immediate
+    imm_mux_in(1) <= imm12_unsigned; -- 12-bit unsigned immediate
+    imm_mux_in(2) <= imm20_signed; -- 20-bit signed immediate
+    imm_mux_in(3) <= imm20_upper; -- upper 20 immediate bits 
     
     signext12_inst : signext
         generic map (
@@ -248,9 +280,9 @@ architecture RTL of ALUdp is
     zeroextbranch_inst : zeroext
         generic map(
             w => 1
-        );
+        )
         port map (
-            imm => branch,
+            imm => to_slv(branch_sig), -- take the lower 1 bit for zero extension
             imm_extended => branch_ext
         );
     
@@ -268,25 +300,28 @@ architecture RTL of ALUdp is
     --this mux chooses between regular and and speical adder op-s 
     adder_op_sp_mux_inst: MUX
         generic map (
-            N := 1
-
-        );
+            N => 1
+        )
         port map(
-            sel => adder_sp_sel,
-            datain => (op1, adder_op_sp),
-            dataout => adder_op1;
+            sel => to_slv(adder_sp_sel),
+            datain => adder_op_sel_mux_in,
+            dataout => adder_op1
         );
+    adder_op_sel_mux_in(0) <= op1;
+    adder_op_sel_mux_in(1) <= adder_r1_sp;
 
+    -- MUX for adder op2 selection
     adder_imm_sp_inst: MUX
         generic map (
-            N := 1
-
-        );
+            N => 1
+        )
         port map(
-            sel => adder_sp_sel,
-            datain => (op2, adder_imm_sp),
-            dataout => adder_op2;
+            sel => to_slv(adder_sp_sel),
+            datain => adder_imm_sel_mux_in,
+            dataout => adder_op2
         );
+    adder_imm_sel_mux_in(0) <= op2;
+    adder_imm_sel_mux_in(1) <= (others => '0'); -- or adder_imm_sp if you have a signal for this
     
 
     
@@ -306,7 +341,7 @@ architecture RTL of ALUdp is
             LT => cmp_LT
         );    
     
-    cmpU_inst: cmp
+    cmpU_inst: cmpU
         port map (
             a => op1,
             b => op2,
@@ -315,13 +350,21 @@ architecture RTL of ALUdp is
     
     branch_mux: MUX1 --this is also used for SLT[U]
         generic map( 
-            N:=3
-        );
+            N => 3
+        )
         port map(
-            sel => funct3,
-            datain => (cmp_EQ,cmp_NE,cmp_LT,cmp_LTU,,cmp_LT,cmp_GE,cmp_LTU,cmp_BGEU), -- WARNING: This implentation makes it impossible to track bugs with branch and SLT[U]
-            dataout => branch
+            sel => branch_sel,
+            datain => branch_mux_in, -- WARNING: This implentation makes it impossible to track bugs with branch and SLT[U]
+            dataout => branch_sig
         );
+    branch_mux_in(0) <= cmp_EQ; -- 0
+    branch_mux_in(1) <= cmp_NE; -- 1
+    branch_mux_in(2) <= cmp_LT; -- 2
+    branch_mux_in(3) <= cmp_LTU; -- 3
+    branch_mux_in(4) <= cmp_LT; -- 3, this is used for SLTh
+    branch_mux_in(5) <= cmp_GE; -- 4
+    branch_mux_in(6) <= cmp_LTU; -- 5
+    branch_mux_in(7) <= cmp_GEU; -- 6, this is used for BGTU
 
 
 
@@ -334,20 +377,15 @@ architecture RTL of ALUdp is
             outp => sll_res
         );
     
-    SRAf_inst: SRAf
+    
+    SRf_inst: SRf
         port map (
             a => op1,
             shamt => op2(4 downto 0), -- assuming r2 contains the shift amount
-            outp => sra_res
+            is_arithmetic => subtr, -- if subtr is set, we perform arithmetic shift
+            outp => sr_res
         );
-    
-    SRLf_inst: SLLf -- SRL is just a left shift with the bits filled with 0
-        port map (
-            a => op1,
-            shamt => op2(4 downto 0), -- assuming r2 contains the shift amount
-            outp => srl_res
-        );
-    
+
     XORf_inst: XORf
         port map (
             a => op1,
@@ -371,6 +409,6 @@ architecture RTL of ALUdp is
     cmp_GE <= not(cmp_EQ or cmp_LT);
     cmp_NE <= not cmp_EQ;
     cmp_GEU <= not(cmp_EQ or cmp_LTU);
-            
+    branch <= branch_sig; -- this is the output of the branch MUX1, it indicates if the branch condition is met
 
 end architecture RTL;
