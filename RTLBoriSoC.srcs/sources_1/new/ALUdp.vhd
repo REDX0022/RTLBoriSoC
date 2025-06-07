@@ -27,7 +27,7 @@ entity ALUdp is
         adder_r1_sp: in std_logic_vector(31 downto 0);
         adder_sp_sel: in std_logic;
 
-        imm : in std_logic_vector(20 downto 0); --we are gonna use the same bus for all imms, the biggest one is 20 bits, also we need to sign extend it
+        imm : in std_logic_vector(19 downto 0); --we are gonna use the same bus for all imms, the biggest one is 20 bits, also we need to sign extend it
         imm_sel: in std_logic_vector(1 downto 0); -- selector for immediate type, 00 for 12-bit signed, 01 for 12-bit unsigned, 10 for 20-bit signed, 11 for upper 20 bits unsigned, IMPORTANT: LSB is the sign selector(0 for signed 1 for signed)
         op : in std_logic_vector(8 downto 0); -- operation selector
         result : out std_logic_vector(31 downto 0);

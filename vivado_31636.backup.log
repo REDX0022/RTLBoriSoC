@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Sat Jun  7 23:22:36 2025
-# Process ID         : 32724
+# Start of session at: Sat Jun  7 23:48:23 2025
+# Process ID         : 31636
 # Current directory  : C:/Users/ceran/Documents/RTLBoriSoC
 # Command line       : vivado.exe -mode batch -source synth_project.tcl
 # Log file           : C:/Users/ceran/Documents/RTLBoriSoC/vivado.log
@@ -17,16 +17,16 @@
 # CPU Physical cores : 6
 # CPU Logical cores  : 12
 # Host memory        : 17086 MB
-# Swap memory        : 2173 MB
-# Total Virtual      : 19259 MB
-# Available Virtual  : 3926 MB
+# Swap memory        : 2349 MB
+# Total Virtual      : 19435 MB
+# Available Virtual  : 3891 MB
 #-----------------------------------------------------------
 source synth_project.tcl
 # open_project RTLBoriSoC.xpr
 INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.gen/sources_1'.
 Scanning sources...
 Finished scanning sources
-open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 621.020 ; gain = 193.680
+open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 619.516 ; gain = 192.988
 # add_files RTLBoriSoC.srcs/sources_1/new/adder.vhd
 WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/adder.vhd' cannot be added to the project because it already exists in the project, skipping this file
 # add_files RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd
@@ -64,12 +64,11 @@ WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.s
 # set_property source_mgmt_mode DisplayOnly [current_project]
 # set_property top cpu [get_filesets sources_1]
 # reset_run synth_1
-INFO: [Project 1-1161] Replacing file C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/utils_1/imports/synth_1/MUX.dcp with file C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/cpu.dcp
 # launch_runs synth_1 -jobs 6
-[Sat Jun  7 23:22:51 2025] Launched synth_1...
+[Sat Jun  7 23:48:37 2025] Launched synth_1...
 Run output will be captured here: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/runme.log
 # wait_on_run synth_1
-[Sat Jun  7 23:22:51 2025] Waiting for synth_1 to finish...
+[Sat Jun  7 23:48:38 2025] Waiting for synth_1 to finish...
 
 *** Running vivado
     with args -log cpu.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source cpu.tcl
@@ -80,12 +79,12 @@ Run output will be captured here: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Sat Jun  7 23:22:55 2025
+  **** Start of session at: Sat Jun  7 23:48:42 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source cpu.tcl -notrace
-create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 619.340 ; gain = 190.039
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 618.695 ; gain = 189.430
 Command: read_checkpoint -auto_incremental -incremental C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/utils_1/imports/synth_1/MUX.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/utils_1/imports/synth_1/MUX.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -97,30 +96,31 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 1332
+INFO: [Synth 8-7075] Helper process launched with PID 32436
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1101.559 ; gain = 465.328
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1097.773 ; gain = 467.031
 ---------------------------------------------------------------------------------
-ERROR: [Synth 8-2716] syntax error near 'PC_branch_mux_in' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:210]
-ERROR: [Synth 8-36] 'pc_mux_branch_in' is not declared [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:209]
-INFO: [Synth 8-11252] unit 'structural' is ignored due to previous errors [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:215]
+ERROR: [Synth 8-2043] formal port/generic <selin> is not declared in <regs> [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:172]
+ERROR: [Synth 8-9486] formal port 'datain' has no actual or default value [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:177]
+INFO: [Synth 8-8898] 'datain' is declared here [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:116]
+INFO: [Synth 8-11252] unit 'structural' is ignored due to previous errors [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:246]
 INFO: [Synth 8-10443] VHDL file 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd' is ignored due to errors
 ERROR: [Synth 8-12189] Failed to read vhdl 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd'
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1201.570 ; gain = 565.340
+Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1196.953 ; gain = 566.211
 ---------------------------------------------------------------------------------
 synthesize failed
 INFO: [Common 17-83] Releasing license: Synthesis
-11 Infos, 0 Warnings, 0 Critical Warnings and 4 Errors encountered.
+12 Infos, 0 Warnings, 0 Critical Warnings and 4 Errors encountered.
 synth_design failed
 ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
-INFO: [Common 17-206] Exiting Vivado at Sat Jun  7 23:23:18 2025...
-[Sat Jun  7 23:23:21 2025] synth_1 finished
+INFO: [Common 17-206] Exiting Vivado at Sat Jun  7 23:49:05 2025...
+[Sat Jun  7 23:49:08 2025] synth_1 finished
 ERROR: [Vivado 12-13638] Failed runs(s) : 'synth_1'
-wait_on_runs: Time (s): cpu = 00:00:00 ; elapsed = 00:00:30 . Memory (MB): peak = 632.453 ; gain = 0.000
+wait_on_runs: Time (s): cpu = 00:00:00 ; elapsed = 00:00:30 . Memory (MB): peak = 624.641 ; gain = 0.000
 ERROR: [Common 17-39] 'wait_on_runs' failed due to earlier errors.
 
     while executing
 "wait_on_run synth_1"
     (file "synth_project.tcl" line 25)
-INFO: [Common 17-206] Exiting Vivado at Sat Jun  7 23:23:21 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat Jun  7 23:49:08 2025...

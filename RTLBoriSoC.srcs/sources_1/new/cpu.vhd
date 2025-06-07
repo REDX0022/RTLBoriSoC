@@ -23,7 +23,7 @@ architecture Structural of cpu is
     signal r2: std_logic_vector(31 downto 0);
     signal adder_r1_sp: std_logic_vector(31 downto 0);
     signal adder_sp_sel: std_logic;
-    signal imm: std_logic_vector(20 downto 0); --we are gonna use the same bus for all imms, the biggest one is 20 bits, also we need to sign extend it
+    signal imm: std_logic_vector(19 downto 0); --we are gonna use the same bus for all imms, the biggest one is 20 bits, also we need to sign extend it
     signal imm_sel: std_logic_vector(1 downto 0); -- selector for immediate type, 00 for 12-bit signed, 01 for 12-bit unsigned, 10 for 20-bit signed, 11 for upper 20 bits unsigned, IMPORTANT: LSB is the sign selector(0 for signed 1 for signed)
     signal ALU_res_sel: std_logic_vector(2 downto 0); -- selector for the ALU result, this is used to select the result of the ALU operation
     signal pc_branch: std_logic;
@@ -35,7 +35,9 @@ architecture Structural of cpu is
     signal PC_in_sig: std_logic_vector(31 downto 0); -- Program Counter input signal
     signal op2_sel: std_logic; -- ALU second operand selector
     signal branch_sel: std_logic_vector(2 downto 0); -- Branch selector
-
+    signal rs1_sel: std_logic_vector(4 downto 0); -- Register source 1 selection
+    signal rs2_sel: std_logic_vector(4 downto 0); -- Register source 2 selection
+    signal rd_sel: std_logic_vector(4 downto 0); -- Register destination selection 
 
     signal ALU_res: std_logic_vector(31 downto 0); -- ALU result signal
     signal PC_branch_mux_in: vector_array(0 to 1);
@@ -47,7 +49,7 @@ architecture Structural of cpu is
         adder_r1_sp: in std_logic_vector(31 downto 0);
         adder_sp_sel: in std_logic;
 
-        imm : in std_logic_vector(20 downto 0); --we are gonna use the same bus for all imms, the biggest one is 20 bits, also we need to sign extend it
+        imm : in std_logic_vector(19 downto 0); --we are gonna use the same bus for all imms, the biggest one is 20 bits, also we need to sign extend it
         imm_sel: in std_logic_vector(1 downto 0); -- selector for immediate type, 00 for 12-bit signed, 01 for 12-bit unsigned, 10 for 20-bit signed, 11 for upper 20 bits unsigned, IMPORTANT: LSB is the sign selector(0 for signed 1 for signed)
         op : in std_logic_vector(8 downto 0); -- operation selector
         result : out std_logic_vector(31 downto 0);
@@ -103,6 +105,22 @@ architecture Structural of cpu is
         );
     end component;
 
+    component REGS is
+        port(
+            clk: in std_logic;
+            rst: in std_logic;
+            en: in std_logic;
+            sel1: in std_logic_vector(4 downto 0);
+            sel2: in std_logic_vector(4 downto 0);
+            sel3: in std_logic_vector(4 downto 0);
+            selin: in std_logic_vector(4 downto 0); 
+            datain: in std_logic_vector(31 downto 0);
+            dataout1: out std_logic_vector(31 downto 0);
+            dataout2: out std_logic_vector(31 downto 0);
+            dataout3: out std_logic_vector(31 downto 0)
+        );
+    end component;
+
     component MUX is
         generic(
             N: natural -- Number of inputs
@@ -143,7 +161,21 @@ architecture Structural of cpu is
                 branch_sel => branch_sel -- Connect to branch selector
             );
 
-
+        --------------------REGS--------------------
+        regs_inst: REGS
+            port map(
+                clk => clk,
+                rst => rst,
+                en => '1',--TODO: Figure out what to do with this
+                sel1 => rs1_sel, -- rs1 selection
+                sel2 => rs2_sel, -- rs2 selection
+                sel3 => "00000", -- WARNING: I dont really remember what this is for
+                selin => rd_sel, -- Write select port
+                datain => ALU_res, --TODO: CREATE A MUX HERE, alu, pc increment, write buffer, or memory
+                dataout1 => r1, 
+                dataout2 => r2, 
+                dataout3 => adder_r1_sp 
+            );
 
         -------------------CTRL---------------------
         instr_reg_inst: reg
@@ -166,13 +198,13 @@ architecture Structural of cpu is
                 PC_wen => open,
                 ALU_res_sel => ALU_res_sel, -- Connect to ALU result selector
                 adder_sp_sel => adder_sp_sel, -- Connect to adder stack pointer selector
-                imm_sel => open,
+                imm_sel => imm_sel, -- Connect to immediate selection
                 op2_sel => op2_sel, -- Connect to ALU second operand selector
-                rs1_sel => open,
-                rs2_sel => open,
-                rd_sel => open,
+                rs1_sel => rs1_sel, -- Connect to register source 1 selection
+                rs2_sel => rs2_sel, -- Connect to register source 2 selection
+                rd_sel => rd_sel, -- Connect to register destination selection
                 funct7 => funct7,
-                imm => open,
+                imm => imm, -- Connect to immediate signal
                 branch_in => instr_branch, -- Connect to instruction branch signal
                 branch_out => pc_branch, -- Connect to PC branch signal
                 instr => instr, -- Connect the instruction input
