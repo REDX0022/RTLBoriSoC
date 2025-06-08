@@ -14,7 +14,8 @@ entity instr_dec is
         buffer_wen: out std_logic;
         instr_wen: out std_logic;
         PC_wen: out std_logic;
-        ALU_res_sel: out std_logic_vector(2 downto 0);
+        addrout_sel: out std_logic; --this chooses between ALU result and the PC
+        funct3: out std_logic_vector(2 downto 0);
         adder_sp_sel: out std_logic;
         imm_sel: out std_logic_vector(1 downto 0);
         op2_sel: out std_logic;
@@ -26,7 +27,8 @@ entity instr_dec is
         branch_in: in std_logic;
         branch_out: out std_logic;
         instr: in std_logic_vector(31 downto 0); -- Input instruction
-        branch_sel: in std_logic_vector(2 downto 0) -- Branch selector
+        --branch_sel: in std_logic_vector(2 downto 0); -- Branch selectoro
+        regs_in_sel: out std_logic_vector(1 downto 0) -- this chooses between ALU_res, INC(PC), memory, and buffer
     );
     
     end entity;
@@ -66,11 +68,13 @@ architecture RTL of instr_dec is
                     rs1_sel <= instr(19 downto 15);
                     rs2_sel <= instr(24 downto 20);
                     funct7 <= instr(31 downto 25);
-                    ALU_res_sel <= instr(14 downto 12); 
+                    funct3 <= instr(14 downto 12); 
                     op2_sel <= '0'; -- ALU second operand is rs2
                     adder_sp_sel <= '0';
                     imm <= (others => '0');
                     imm_sel <= (others => '0');
+                    regs_in_sel <= "00";
+                    addrout_sel <= '0'; 
                 when OPIMM_code =>
                     rd_sel      <= instr(11 downto 7);
                     rs1_sel     <= instr(19 downto 15);
@@ -80,21 +84,25 @@ architecture RTL of instr_dec is
                     funct7      <= instr(31 downto 25); -- just the 30 bit is used for subtr and SRA
                     imm_sel     <= "00"; -- 12 bit signed
                     adder_sp_sel<= '0'; 
-                    ALU_res_sel <= instr(14 downto 12); -- this is made such that we dont need a translator for OP and OPIMM
+                    funct3 <= instr(14 downto 12); -- this is made such that we dont need a translator for OP and OPIMM
                     reg_wen     <= '0';
                     buffer_wen  <= '0';
                     instr_wen   <= '0';
                     PC_wen      <= '0';
+                    regs_in_sel <= "00"; -- ALU result
+                    addrout_sel <= '0'; -- ALU result
                 when others =>
                     rd_sel      <= (others => '0');
                     rs1_sel     <= (others => '0');
                     rs2_sel     <= (others => '0');
                     funct7      <= (others => '0');
-                    ALU_res_sel <= (others => '0');
+                    funct3 <= (others => '0');
                     op2_sel     <= '0';
                     adder_sp_sel<= '0';
                     imm         <= (others => '0');
                     imm_sel     <= (others => '0');
+                    regs_in_sel <= "00"; -- ALU result
+                    addrout_sel <= '0';
             end case;
 
     end process; 

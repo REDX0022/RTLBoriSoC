@@ -27,7 +27,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity MUX is
     generic (
-        N : natural  -- 2 bits → 4 elements
+        N : natural := 2  -- 2 bits → 4 elements
     );
     port (
         sel     : in std_logic_vector(N-1 downto 0); -- N-bit select

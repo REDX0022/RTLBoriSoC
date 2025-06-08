@@ -1,0 +1,26 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../RTLBoriSoC.srcs/sources_1/new/MUX.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/adder.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/subtr.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/signext.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/zeroext.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/SLLf.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/ORf.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/XORf.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/ANDf.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/cpu.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/reg.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/MUX1.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/mem.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/SOC.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/def_pack.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/mnemonic_pack.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/init_pack.vhd" \
+"../../../../RTLBoriSoC.srcs/sources_1/new/IO_pack.vhd" \
+"../../testbench.vhd" \
+
+# Do not sort compile order
+nosort

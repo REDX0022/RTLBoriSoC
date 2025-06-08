@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log cpu.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source cpu.tcl
+    with args -log SOC.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SOC.tcl
 
 
 
@@ -8,16 +8,16 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Sun Jun  8 00:03:01 2025
+  **** Start of session at: Sun Jun  8 19:36:07 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
-source cpu.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 618.812 ; gain = 187.992
+source SOC.tcl -notrace
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 618.656 ; gain = 190.723
 Command: read_checkpoint -auto_incremental -incremental C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/utils_1/imports/synth_1/MUX.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/utils_1/imports/synth_1/MUX.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
-Command: synth_design -top cpu -part xc7a100tcsg324-1
+Command: synth_design -top SOC -part xc7a100tcsg324-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
@@ -25,12 +25,16 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 6032
+INFO: [Synth 8-7075] Helper process launched with PID 34584
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1097.539 ; gain = 466.410
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1097.336 ; gain = 467.156
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'cpu' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:19]
-INFO: [Synth 8-3491] module 'ALUdp' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:23' bound to instance 'ALUdp_inst' of component 'ALUdp' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:147]
+INFO: [Synth 8-638] synthesizing module 'SOC' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SOC.vhd:25]
+	Parameter SIMULATION bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'cpu' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:10' bound to instance 'cpu_inst' of component 'cpu' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SOC.vhd:77]
+INFO: [Synth 8-638] synthesizing module 'cpu' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:28]
+	Parameter SIMULATION bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'ALUdp' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:23' bound to instance 'ALUdp_inst' of component 'ALUdp' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:168]
 INFO: [Synth 8-638] synthesizing module 'ALUdp' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:42]
 	Parameter N bound to: 3 - type: integer 
 INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'mux_res' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:206]
@@ -97,39 +101,62 @@ INFO: [Synth 8-3491] module 'ORf' declared at 'C:/Users/ceran/Documents/RTLBoriS
 INFO: [Synth 8-638] synthesizing module 'ORf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ORf.vhd:13]
 INFO: [Synth 8-256] done synthesizing module 'ORf' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ORf.vhd:13]
 INFO: [Synth 8-256] done synthesizing module 'ALUdp' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:42]
-WARNING: [Synth 8-547] port direction mismatch for port 'ALU_res_sel' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:147]
-WARNING: [Synth 8-547] port direction mismatch for port 'op2_sel' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:147]
-INFO: [Synth 8-637] synthesizing blackbox instance 'regs_inst' of component 'REGS' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:165]
+WARNING: [Synth 8-547] port direction mismatch for port 'funct3' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:168]
+WARNING: [Synth 8-547] port direction mismatch for port 'op2_sel' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:168]
+INFO: [Synth 8-637] synthesizing blackbox instance 'regs_inst' of component 'REGS' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:186]
+	Parameter N bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'regs_in_mux' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:201]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'instr_reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:181]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'instr_reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:217]
 INFO: [Synth 8-638] synthesizing module '\reg ' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:20]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
 INFO: [Synth 8-256] done synthesizing module '\reg ' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:20]
-INFO: [Synth 8-3491] module 'instr_dec' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:11' bound to instance 'instr_decoder_inst' of component 'instr_dec' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:193]
-INFO: [Synth 8-638] synthesizing module 'instr_dec' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:35]
-INFO: [Synth 8-256] done synthesizing module 'instr_dec' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:35]
+INFO: [Synth 8-3491] module 'instr_dec' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:11' bound to instance 'instr_decoder_inst' of component 'instr_dec' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:229]
+INFO: [Synth 8-638] synthesizing module 'instr_dec' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:37]
+INFO: [Synth 8-256] done synthesizing module 'instr_dec' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:37]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'PC_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:213]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'PC_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:251]
 INFO: [Synth 8-638] synthesizing module 'reg__parameterized1' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:20]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 0 - type: bool 
 INFO: [Synth 8-256] done synthesizing module 'reg__parameterized1' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:20]
-INFO: [Synth 8-637] synthesizing blackbox instance 'INCf_inst' of component 'INCf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:226]
+INFO: [Synth 8-637] synthesizing blackbox instance 'INCf_inst' of component 'INCf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:264]
 	Parameter N bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'PC_branch_mux' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:232]
-INFO: [Synth 8-256] done synthesizing module 'cpu' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:19]
+INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'PC_branch_mux' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:270]
+	Parameter N bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'mem_addrout_mux' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:283]
+INFO: [Synth 8-256] done synthesizing module 'cpu' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:28]
+	Parameter SIMULATION bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'mem' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mem.vhd:17' bound to instance 'mem_inst' of component 'mem' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SOC.vhd:93]
+INFO: [Synth 8-638] synthesizing module 'mem' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mem.vhd:36]
+	Parameter SIMULATION bound to: 0 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'mem' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mem.vhd:36]
+INFO: [Synth 8-256] done synthesizing module 'SOC' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SOC.vhd:25]
 WARNING: [Synth 8-3848] Net op1 in module/entity ALUdp does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:43]
-WARNING: [Synth 8-3848] Net B in module/entity instr_dec does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:58]
-WARNING: [Synth 8-3848] Net J in module/entity instr_dec does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:57]
-WARNING: [Synth 8-3848] Net ALU_res_sel in module/entity cpu does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:58]
-WARNING: [Synth 8-3848] Net op2_sel in module/entity cpu does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:59]
-WARNING: [Synth 8-3848] Net branch_sel in module/entity cpu does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:37]
-WARNING: [Synth 8-7129] Port branch_sel[2] in module instr_dec is either unconnected or has no load
-WARNING: [Synth 8-7129] Port branch_sel[1] in module instr_dec is either unconnected or has no load
-WARNING: [Synth 8-7129] Port branch_sel[0] in module instr_dec is either unconnected or has no load
+WARNING: [Synth 8-3848] Net B in module/entity instr_dec does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:60]
+WARNING: [Synth 8-3848] Net J in module/entity instr_dec does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:59]
+WARNING: [Synth 8-3848] Net dataout in module/entity cpu does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:18]
+WARNING: [Synth 8-3848] Net funct3 in module/entity cpu does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:78]
+WARNING: [Synth 8-3848] Net op2_sel in module/entity cpu does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:79]
+WARNING: [Synth 8-7129] Port addr[31] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[30] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[29] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[28] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[27] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[26] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[25] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[24] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[23] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[22] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[21] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[20] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[19] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[18] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[17] in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[16] in module mem is either unconnected or has no load
 WARNING: [Synth 8-7129] Port r1[31] in module ALUdp is either unconnected or has no load
 WARNING: [Synth 8-7129] Port r1[30] in module ALUdp is either unconnected or has no load
 WARNING: [Synth 8-7129] Port r1[29] in module ALUdp is either unconnected or has no load
@@ -171,23 +198,55 @@ WARNING: [Synth 8-7129] Port op[3] in module ALUdp is either unconnected or has 
 WARNING: [Synth 8-7129] Port op[2] in module ALUdp is either unconnected or has no load
 WARNING: [Synth 8-7129] Port op[1] in module ALUdp is either unconnected or has no load
 WARNING: [Synth 8-7129] Port op[0] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[31] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[30] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[29] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[28] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[27] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[26] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[25] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[24] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[23] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[22] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[21] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[20] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[19] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[18] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[17] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[16] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[15] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[14] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[13] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[12] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[11] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[10] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[9] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[8] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[7] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[6] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[5] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[4] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[3] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[2] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[1] in module cpu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataout[0] in module cpu is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1204.262 ; gain = 573.133
+Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1219.258 ; gain = 589.078
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1204.262 ; gain = 573.133
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1219.258 ; gain = 589.078
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1204.262 ; gain = 573.133
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1219.258 ; gain = 589.078
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-WARNING: [Synth 8-327] inferring latch for variable 'reg_wen_reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:84]
+WARNING: [Synth 8-327] inferring latch for variable 'reg_wen_reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:88]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1204.262 ; gain = 573.133
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1219.258 ; gain = 589.078
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -201,8 +260,8 @@ Detailed RTL Component Info :
 +---Registers : 
 	               32 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 5     
-	   4 Input   32 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 6     
+	   4 Input   32 Bit        Muxes := 2     
 	   2 Input   12 Bit        Muxes := 1     
 	   2 Input    7 Bit        Muxes := 1     
 	   2 Input    5 Bit        Muxes := 3     
@@ -226,22 +285,51 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-3332] Sequential element (instr_decoder_inst/reg_wen_reg) is unused and will be removed from module cpu.
+WARNING: [Synth 8-3332] Sequential element (cpu_inst/instr_decoder_inst/reg_wen_reg) is unused and will be removed from module SOC.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1440.559 ; gain = 809.430
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 1745.629 ; gain = 1115.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++------------+------------------+-----------+----------------------+-------------------+
+|Module Name | RTL Object       | Inference | Size (Depth x Width) | Primitives        | 
++------------+------------------+-----------+----------------------+-------------------+
+|SOC         | mem_inst/ram_reg | Implied   | 64 K x 32            | RAM256X1S x 8192  | 
++------------+------------------+-----------+----------------------+-------------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1441.422 ; gain = 810.293
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1745.629 ; gain = 1115.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++------------+------------------+-----------+----------------------+-------------------+
+|Module Name | RTL Object       | Inference | Size (Depth x Width) | Primitives        | 
++------------+------------------+-----------+----------------------+-------------------+
+|SOC         | mem_inst/ram_reg | Implied   | 64 K x 32            | RAM256X1S x 8192  | 
++------------+------------------+-----------+----------------------+-------------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1441.422 ; gain = 810.293
+Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1745.629 ; gain = 1115.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -255,44 +343,112 @@ Finished Flattening Before IO Insertion
 ---------------------------------------------------------------------------------
 Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-4649] Removing BlackBox instance \ALUdp_inst/cmp_inst  of module cmp_bbox_0 having unconnected or no output ports
-INFO: [Synth 8-4649] Removing BlackBox instance \ALUdp_inst/cmpU_inst  of module cmpu_bbox_1 having unconnected or no output ports
-INFO: [Synth 8-4649] Removing BlackBox instance \ALUdp_inst/SRf_inst  of module SRf_bbox_2 having unconnected or no output ports
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1602.254 ; gain = 971.125
+Finished IO Insertion : Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 1745.629 ; gain = 1115.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1602.254 ; gain = 971.125
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 1745.629 ; gain = 1115.449
 ---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[31] with 1st driver pin 'cmp_inst_i_67/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[31] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[31]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[30] with 1st driver pin 'SRf_inst_i_4/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[30] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[30]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[29] with 1st driver pin 'cmp_inst_i_60/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[29] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[29]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[28] with 1st driver pin 'cmp_inst_i_61/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[28] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[28]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[27] with 1st driver pin 'cmp_inst_i_62/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[27] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[27]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[26] with 1st driver pin 'cmp_inst_i_63/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[26] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[26]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[25] with 1st driver pin 'cmp_inst_i_64/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[25] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[25]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[24] with 1st driver pin 'regs_inst_i_55/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[24] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[24]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[23] with 1st driver pin 'regs_inst_i_59/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[23] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[23]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[22] with 1st driver pin 'regs_inst_i_60/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[22] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[22]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[21] with 1st driver pin 'regs_inst_i_61/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[21] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[21]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[20] with 1st driver pin 'regs_inst_i_62/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[20] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[20]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[19] with 1st driver pin 'regs_inst_i_48/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[19] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[19]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[18] with 1st driver pin 'regs_inst_i_49/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[18] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[18]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[17] with 1st driver pin 'regs_inst_i_50/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[17] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[17]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[16] with 1st driver pin 'regs_inst_i_51/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[16] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[16]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[15] with 1st driver pin 'regs_inst_i_52/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[15] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[15]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[14] with 1st driver pin 'regs_inst_i_110/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[14] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[14]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[13] with 1st driver pin 'regs_inst_i_111/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[13] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[13]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[12] with 1st driver pin 'regs_inst_i_109/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[12] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[12]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[11] with 1st driver pin 'regs_inst_i_63/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[11] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[11]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[10] with 1st driver pin 'regs_inst_i_64/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[10] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[10]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[9] with 1st driver pin 'regs_inst_i_65/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[9] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[9]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[8] with 1st driver pin 'regs_inst_i_66/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[8] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[8]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[7] with 1st driver pin 'regs_inst_i_67/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[7] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[7]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[6] with 1st driver pin 'cmp_inst_i_36/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[6] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[6]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[5] with 1st driver pin 'regs_inst_i_56/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[5] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[5]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[4] with 1st driver pin 'cmp_inst_i_37/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[4] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[4]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[3] with 1st driver pin 'cmp_inst_i_38/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[3] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[3]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[2] with 1st driver pin 'cmp_inst_i_50/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[2] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[2]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[1] with 1st driver pin 'regs_inst_i_57/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[1] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[1]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[0] with 1st driver pin 'regs_inst_i_58/O' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dataout_sig[0] with 2nd driver pin 'cpu_inst/instr_reg_inst/rising_proc.sto_reg[0]/Q' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:28]
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|       32|Failed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1602.254 ; gain = 971.125
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:00:54 . Memory (MB): peak = 1745.629 ; gain = 1115.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1602.254 ; gain = 971.125
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:54 ; elapsed = 00:00:58 . Memory (MB): peak = 1745.629 ; gain = 1115.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1602.254 ; gain = 971.125
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:54 ; elapsed = 00:00:58 . Memory (MB): peak = 1745.629 ; gain = 1115.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1602.254 ; gain = 971.125
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:54 ; elapsed = 00:00:58 . Memory (MB): peak = 1745.629 ; gain = 1115.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -304,6 +460,9 @@ Report BlackBoxes:
 +------+--------------+----------+
 |1     |REGS          |         1|
 |2     |INCf          |         1|
+|3     |cmp           |         1|
+|4     |cmpu          |         1|
+|5     |SRf           |         1|
 +------+--------------+----------+
 
 Report Cell Usage: 
@@ -312,43 +471,60 @@ Report Cell Usage:
 +------+----------+------+
 |1     |INCf_bbox |     1|
 |2     |REGS_bbox |     1|
-|3     |BUFG      |     1|
-|4     |CARRY4    |     8|
-|5     |FDCE      |    32|
-|6     |IBUF      |     2|
+|3     |SRf_bbox  |     1|
+|4     |cmp_bbox  |     1|
+|5     |cmpu_bbox |     1|
+|6     |BUFG      |     1|
+|7     |CARRY4    |     8|
+|8     |LUT1      |     1|
+|9     |LUT2      |  1070|
+|10    |LUT3      |   185|
+|11    |LUT4      |    90|
+|12    |LUT5      |  7020|
+|13    |LUT6      |  2243|
+|14    |MUXF7     |  1089|
+|15    |MUXF8     |   512|
+|16    |RAM256X1S |  8192|
+|17    |FDCE      |    85|
+|18    |IBUF      |     2|
 +------+----------+------+
 
 Report Instance Areas: 
-+------+-------------+--------------------+------+
-|      |Instance     |Module              |Cells |
-+------+-------------+--------------------+------+
-|1     |top          |                    |   171|
-|2     |  ALUdp_inst |ALUdp               |     8|
-|3     |    mux_res  |MUX                 |     8|
-|4     |  PC_inst    |reg__parameterized1 |    32|
-+------+-------------+--------------------+------+
++------+-------------------+--------------------+------+
+|      |Instance           |Module              |Cells |
++------+-------------------+--------------------+------+
+|1     |top                |                    | 20661|
+|2     |  cpu_inst         |cpu                 |  8658|
+|3     |    ALUdp_inst     |ALUdp               |   161|
+|4     |      mux_res      |MUX                 |   102|
+|5     |    PC_inst        |reg__parameterized1 |  8314|
+|6     |    instr_reg_inst |\reg                |    32|
+|7     |  mem_inst         |mem                 | 12000|
++------+-------------------+--------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1602.254 ; gain = 971.125
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:54 ; elapsed = 00:00:59 . Memory (MB): peak = 1745.629 ; gain = 1115.449
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 56 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1602.254 ; gain = 971.125
-Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1602.254 ; gain = 971.125
+Synthesis finished with 0 errors, 64 critical warnings and 101 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:54 ; elapsed = 00:00:59 . Memory (MB): peak = 1745.629 ; gain = 1115.449
+Synthesis Optimization Complete : Time (s): cpu = 00:00:54 ; elapsed = 00:00:59 . Memory (MB): peak = 1745.629 ; gain = 1115.449
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1617.320 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.494 . Memory (MB): peak = 1745.629 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 9801 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 6 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1728.277 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 1953.609 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 8192 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 8192 instances
 
-Synth Design complete | Checksum: 5daa8be2
+Synth Design complete | Checksum: 79d9003e
 INFO: [Common 17-83] Releasing license: Synthesis
-81 Infos, 56 Warnings, 0 Critical Warnings and 0 Errors encountered.
+86 Infos, 101 Warnings, 64 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1728.277 ; gain = 1104.344
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1728.277 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/cpu.dcp' has been generated.
-INFO: [Vivado 12-24828] Executing command : report_utilization -file cpu_utilization_synth.rpt -pb cpu_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Jun  8 00:03:41 2025...
+synth_design: Time (s): cpu = 00:01:14 ; elapsed = 00:01:21 . Memory (MB): peak = 1953.609 ; gain = 1330.664
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.276 . Memory (MB): peak = 1953.609 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/SOC.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file SOC_utilization_synth.rpt -pb SOC_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jun  8 19:37:45 2025...

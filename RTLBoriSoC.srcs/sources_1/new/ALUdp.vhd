@@ -33,9 +33,9 @@ entity ALUdp is
         result : out std_logic_vector(31 downto 0);
         subtr : in std_logic; -- flag to indicate if the operatioon is a subtraction, this might be poor design, and also SRA
         branch: out std_logic; -- flag to indicate if to use the address from the ALU or the PC increment
-        ALU_res_sel: in std_logic_vector(2 downto 0); -- selector for the ALU result, this is used to select the result of the ALU operation
-        op2_sel: in std_logic; -- ALU second operand selector, 0 for r2, 1 for immediate
-        branch_sel: in std_logic_vector(2 downto 0) -- selector for the branch operation, 0 for EQ, 1 for NE, 2 for LT, 3 for LTU, 4 for GE, 5 for LTU, 6 for GEU
+        funct3: in std_logic_vector(2 downto 0); -- selector for the ALU result, this is used to select the result of the ALU operation
+        op2_sel: in std_logic -- ALU second operand selector, 0 for r2, 1 for immediate
+        --branch_sel: in std_logic_vector(2 downto 0) -- selector for the branch operation, 0 for EQ, 1 for NE, 2 for LT, 3 for LTU, 4 for GE, 5 for LTU, 6 for GEU
     );
 end entity;
 
@@ -89,127 +89,127 @@ architecture RTL of ALUdp is
         N : natural -- 2 bits → 4 elements
        
     );
-    port (
-        sel     : in std_logic_vector(N-1 downto 0); -- N-bit select
-        datain  : in vector_array(0 to 2**N - 1);
-        dataout : out std_logic_vector(31 downto 0) --32 bit hardcoded because it might not recognize and syntehsize types well otherwise
-    );
-    end component;
-
-    component MUX1 is
-        generic (
-            N : natural  -- 2 bits → 4 elements
-        );
         port (
             sel     : in std_logic_vector(N-1 downto 0); -- N-bit select
-            datain  : in std_logic_vector(0 to 2**N-1);
-            dataout : out std_logic --32 bit hardcoded because it might not recognize and syntehsize types well otherwise
+            datain  : in vector_array(0 to 2**N - 1);
+            dataout : out std_logic_vector(31 downto 0) --32 bit hardcoded because it might not recognize and syntehsize types well otherwise
         );
-    end component;
+        end component;
 
-    component signext is
-        generic (
-            w: integer --should be specified later
-        );
-        port (
-            imm : in std_logic_vector(w-1 downto 0); -- immediate input
-            imm_extended : out std_logic_vector(31 downto 0) -- signed extended output
-        );
-    end component;
-    
-   component zeroext is
-        generic (
-            w: integer -- should be specified later
-        );
-        port (
-            imm : in std_logic_vector(w-1 downto 0); -- w-bit immediate input
-            imm_extended : out std_logic_vector(31 downto 0) -- 32-bit zero-extended output
-        );
-    end component;
+        component MUX1 is
+            generic (
+                N : natural  -- 2 bits → 4 elements
+            );
+            port (
+                sel     : in std_logic_vector(N-1 downto 0); -- N-bit select
+                datain  : in std_logic_vector(0 to 2**N-1);
+                dataout : out std_logic --32 bit hardcoded because it might not recognize and syntehsize types well otherwise
+            );
+        end component;
 
-    component SLLf is
-        port (
-            a : in std_logic_vector(31 downto 0);
-            shamt : in std_logic_vector(4 downto 0);
-            outp : out std_logic_vector(31 downto 0)
-        );
-    end component;
+        component signext is
+            generic (
+                w: integer --should be specified later
+            );
+            port (
+                imm : in std_logic_vector(w-1 downto 0); -- immediate input
+                imm_extended : out std_logic_vector(31 downto 0) -- signed extended output
+            );
+        end component;
+        
+    component zeroext is
+            generic (
+                w: integer -- should be specified later
+            );
+            port (
+                imm : in std_logic_vector(w-1 downto 0); -- w-bit immediate input
+                imm_extended : out std_logic_vector(31 downto 0) -- 32-bit zero-extended output
+            );
+        end component;
 
-    
-    component SRf is
-        port (
-            a : in std_logic_vector(31 downto 0);
-            shamt : in std_logic_vector(4 downto 0);
-            is_arithmetic : in std_logic; -- flag to indicate if the shift is arithmetic or logical
-            outp : out std_logic_vector(31 downto 0)
-        );
-    end component;
+        component SLLf is
+            port (
+                a : in std_logic_vector(31 downto 0);
+                shamt : in std_logic_vector(4 downto 0);
+                outp : out std_logic_vector(31 downto 0)
+            );
+        end component;
 
-    component XORf is
-        port (
-            a : in std_logic_vector(31 downto 0);
-            b : in std_logic_vector(31 downto 0);
-            outp : out std_logic_vector(31 downto 0)
-        );
-    end component;
+        
+        component SRf is
+            port (
+                a : in std_logic_vector(31 downto 0);
+                shamt : in std_logic_vector(4 downto 0);
+                is_arithmetic : in std_logic; -- flag to indicate if the shift is arithmetic or logical
+                outp : out std_logic_vector(31 downto 0)
+            );
+        end component;
 
-    component ANDf is
-        port (
-            a : in std_logic_vector(31 downto 0);
-            b : in std_logic_vector(31 downto 0);
-            outp : out std_logic_vector(31 downto 0)
-        );
-    end component;
+        component XORf is
+            port (
+                a : in std_logic_vector(31 downto 0);
+                b : in std_logic_vector(31 downto 0);
+                outp : out std_logic_vector(31 downto 0)
+            );
+        end component;
 
-    component ORf is
-        port (
-            a : in std_logic_vector(31 downto 0);
-            b : in std_logic_vector(31 downto 0);
-            outp : out std_logic_vector(31 downto 0)
-        );
-    end component;
+        component ANDf is
+            port (
+                a : in std_logic_vector(31 downto 0);
+                b : in std_logic_vector(31 downto 0);
+                outp : out std_logic_vector(31 downto 0)
+            );
+        end component;
 
-
-
-
-   component adder is
-        port (
-            a : in std_logic_vector(31 downto 0);
-            b : in std_logic_vector(31 downto 0);
-            sum : out std_logic_vector(31 downto 0);
-            subtr : in std_logic -- flag to indicate addition or subtraction
-        );
-    end component;
-
-    
-    component cmp is
-        port(
-            a : in std_logic_vector(31 downto 0);
-            b : in std_logic_vector(31 downto 0);
-            eq : out std_logic;
-            lt : out std_logic
-        );
-    end component;
+        component ORf is
+            port (
+                a : in std_logic_vector(31 downto 0);
+                b : in std_logic_vector(31 downto 0);
+                outp : out std_logic_vector(31 downto 0)
+            );
+        end component;
 
 
-    component cmpu is
-        port(
-            a : in std_logic_vector(31 downto 0);
-            b : in std_logic_vector(31 downto 0);
-            ltu : out std_logic
-        );
-    end component;
 
-    begin
 
-    -- MUX for ALU result selection
-    mux_res: MUX
-        generic map (
-            N => 3 -- 3 bits → 8 elements
-        )
-        port map (
-            sel => ALU_res_sel,
-            datain => res_mux_in,
+    component adder is
+            port (
+                a : in std_logic_vector(31 downto 0);
+                b : in std_logic_vector(31 downto 0);
+                sum : out std_logic_vector(31 downto 0);
+                subtr : in std_logic -- flag to indicate addition or subtraction
+            );
+        end component;
+
+        
+        component cmp is
+            port(
+                a : in std_logic_vector(31 downto 0);
+                b : in std_logic_vector(31 downto 0);
+                eq : out std_logic;
+                lt : out std_logic
+            );
+        end component;
+
+
+        component cmpu is
+            port(
+                a : in std_logic_vector(31 downto 0);
+                b : in std_logic_vector(31 downto 0);
+                ltu : out std_logic
+            );
+        end component;
+
+        begin
+
+        -- MUX for ALU result selection
+        mux_res: MUX
+            generic map (
+                N => 3 -- 3 bits → 8 elements
+            )
+            port map (
+                sel => funct3,
+                datain => res_mux_in,
             dataout => result
         );
     -- Assign the correct order to res_mux_in after the mux_res instance
@@ -353,7 +353,7 @@ architecture RTL of ALUdp is
             N => 3
         )
         port map(
-            sel => branch_sel,
+            sel => funct3,
             datain => branch_mux_in, -- WARNING: This implentation makes it impossible to track bugs with branch and SLT[U]
             dataout => branch_sig
         );
