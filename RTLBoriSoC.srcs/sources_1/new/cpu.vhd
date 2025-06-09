@@ -19,7 +19,7 @@ entity cpu is
         dataout: out std_logic_vector(31 downto 0); -- Data output for memory
         datain: in std_logic_vector(31 downto 0);   -- Data input for memory
         instrin: in std_logic_vector(31 downto 0); -- Instruction input, can be used for simulation
-        addrPC: out std_logic_vector(31 downto 0) -- Address input for Program Counter
+        addrPC: out std_logic_vector(31 downto 0) -- 
         -- synthesis translate_off
         ;
         sim_instr: out std_logic_vector(31 downto 0) := (others => '0');
@@ -59,11 +59,16 @@ architecture Structural of cpu is
 
     signal regs_in_sel: std_logic_vector(1 downto 0) := (others => '0'); -- this chooses between ALU_res, INC(PC), memory, and buffer
     signal regs_in_sig: std_logic_vector(31 downto 0) := (others => '0'); -- Register input signal
+    signal regs_sp_out_sig: std_logic_vector(31 downto 0) := (others => '0'); -- Stack pointer output signal, not used in this example
     signal regs_in_mux_in: vector_array(0 to 3) := (others => (others => '0')); -- Input for the register input multiplexer
+
+    signal AUIPC_or_branch_in: vector_array(0 to 1) := (others => (others => '0')); -- Input for the AUIPC or branch multiplexer
+    signal AUIPC_or_branch_sel: std_logic ; -- Selector for AUIPC or branch operation
+    signal r1_or_PC: std_logic_vector(31 downto 0) := (others => '0'); -- Register 1 or Program Counter selection signal
 
     signal mem_addrout_mux_in: vector_array(0 to 1) := (others => (others => '0')); -- Input for the memory address output multiplexer
 
-    signal addrout_sel: std_logic := '0'; -- Selector for memory address output
+
 
     --signal mem_dataout: std_logic_vector(31 downto 0) := (others => '0'); -- Memory data output signal
     --signal mem_addrout: std_logic_vector(31 downto 0) := (others => '0'); -- Memory address output signal
@@ -100,7 +105,6 @@ architecture Structural of cpu is
         buffer_wen: out std_logic;
         instr_wen: out std_logic;
         PC_wen: out std_logic;
-        addrout_sel: out std_logic; -- Selector for memory address output
         adder_sp_sel: out std_logic;
         imm_sel: out std_logic_vector(1 downto 0);
         op2_sel: out std_logic;
@@ -114,7 +118,8 @@ architecture Structural of cpu is
         instr: in std_logic_vector(31 downto 0); -- Input instruction
         --branch_sel: in std_logic_vector(2 downto 0); -- Branch selector
         funct3: out std_logic_vector(2 downto 0); -- Function code for the instruction
-        regs_in_sel: out std_logic_vector(1 downto 0) -- this chooses between ALU_res, INC(PC), memory, and buffer
+        regs_in_sel: out std_logic_vector(1 downto 0); -- this chooses between ALU_res, INC(PC), memory, and buffer
+        AUIPC_or_branch_sel: out std_logic -- Selector for AUIPC or branch operation
         );
     end component;
 
@@ -178,9 +183,9 @@ architecture Structural of cpu is
         --------------------ALU--------------------
         ALUdp_inst: ALUdp
             port map(
-                r1 => r1,
+                r1 => r1_or_PC,
                 r2 => r2,
-                adder_r1_sp => adder_r1_sp,
+                adder_r1_sp => regs_sp_out_sig, -- Stack pointer output, not used in this example
                 adder_sp_sel => adder_sp_sel,
                 imm => imm,
                 imm_sel => imm_sel,
@@ -207,7 +212,7 @@ architecture Structural of cpu is
                 datain => regs_in_sig, 
                 dataout1 => r1, 
                 dataout2 => r2, 
-                dataout3 => adder_r1_sp 
+                dataout3 => regs_sp_out_sig -- Stack pointer output, not used in this example 
                 -- synthesis translate_off
                 ,
                 reg_sim => reg_sim -- Simulation interface for registers
@@ -227,6 +232,18 @@ architecture Structural of cpu is
         regs_in_mux_in(1) <= PC_inc_sig; -- Incremented PC input
         regs_in_mux_in(2) <= datain; -- Memory input
         regs_in_mux_in(3) <= (others => '0'); -- Buffer input, placeholder for future use
+
+        AUIPC_or_branch: MUX
+            generic map(
+                N => 1 -- 1 input for the MUX
+            )
+            port map(
+                sel => to_slv(AUIPC_or_branch_sel),
+                datain => AUIPC_or_branch_in, -- Placeholder for AUIPC or branch input
+                dataout => r1_or_PC -- Output not used in this example
+            );
+        AUIPC_or_branch_in(1) <= PC_sig; -- Connect to the PC signal
+        AUIPC_or_branch_in(0) <= r1; -- Connect to the ALU result signal
 
 
         -------------------CTRL---------------------
@@ -248,9 +265,8 @@ architecture Structural of cpu is
                 buffer_wen => open,
                 instr_wen => open,
                 PC_wen => open,
-                addrout_sel => addrout_sel, -- Connect to memory address output selector
                 funct3 => funct3, -- Connect to ALU result selector
-                --adder_sp_sel => adder_sp_sel, -- Connect to adder stack pointer selector
+                adder_sp_sel => adder_sp_sel, -- Connect to adder
                 imm_sel => imm_sel, -- Connect to immediate selection
                 op2_sel => op2_sel, -- Connect to ALU second operand selector
                 rs1_sel => rs1_sel, -- Connect to register source 1 selection
@@ -262,7 +278,8 @@ architecture Structural of cpu is
                 branch_out => pc_branch, -- Connect to PC branch signal
                 instr => instr, -- Connect the instruction input
                 --branch_sel => branch_sel, -- Connect to branch selector
-                regs_in_sel => regs_in_sel -- Connect to register input selection
+                regs_in_sel => regs_in_sel, -- Connect to register input selection
+                AUIPC_or_branch_sel => AUIPC_or_branch_sel -- Connect to AUIPC or branch selector
             );     
         PC_inst: reg
             generic map(
@@ -296,19 +313,11 @@ architecture Structural of cpu is
             PC_branch_mux_in(1) <= adder_res; 
         
         --------------------MEM--------------------
-        mem_addrout_mux: MUX
-            generic map(
-                N => 1 -- 1 input for the MUX
-            )
-            port map(
-                sel => to_slv(addrout_sel), -- Select signal for the memory address output
-                datain => mem_addrout_mux_in, -- P,laceholder for memory address output
-                dataout => addrPC -- Output not used in this example
-            );
-        mem_addrout_mux_in(0) <= PC_sig; -- Connect to the PC signal
-        mem_addrout_mux_in(1) <= ALU_res; -- Connect to the ALU result signal
         
+        addrPC <= PC_sig; -- Connect the Program Counter to the memory address input
        
+        
+
 
 
         -------------------- Simulation-only instruction trace output --------------------

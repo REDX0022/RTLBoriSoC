@@ -411,6 +411,6 @@ architecture RTL of ALUdp is
     cmp_NE <= not cmp_EQ;
     cmp_GEU <= not(cmp_EQ or cmp_LTU);
     branch <= branch_sig; -- this is the output of the branch MUX1, it indicates if the branch condition is met
-    op1 <= r1;  --TODO: CHECK THIS 
+    op1 <= r1; -- first operand is always r1
     adder_res <= adder_res_sig; -- this is the output of the adder operation, this is not used in this ALU, but might be useful later
 end architecture RTL;

@@ -72,11 +72,17 @@ begin
             port map (
                 clk => clk,
                 rst => rst,
-                en =>  en_internal(i),
+                en => en_internal(i),
                 datain => datain,
                 dataout => reg_array(i)
             );
-        en_internal(i) <= '1' when selin = std_logic_vector(to_unsigned(i, 5)) and en = '1' else '0';
+
+        zero_reg_en: if i = 0 generate
+            en_internal(i) <= '0';
+        end generate;
+        nonzero_reg_en: if i /= 0 generate
+            en_internal(i) <= '1' when selin = std_logic_vector(to_unsigned(i, 5)) and en = '1' else '0';
+        end generate;
     end generate;
     
     -- Output multiplexers using MUX component

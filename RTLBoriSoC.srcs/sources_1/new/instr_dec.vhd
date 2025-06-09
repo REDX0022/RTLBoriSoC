@@ -14,7 +14,6 @@ entity instr_dec is
         buffer_wen: out std_logic;
         instr_wen: out std_logic;
         PC_wen: out std_logic;
-        addrout_sel: out std_logic; --this chooses between ALU result and the PC
         funct3: out std_logic_vector(2 downto 0);
         adder_sp_sel: out std_logic;
         imm_sel: out std_logic_vector(1 downto 0);
@@ -28,7 +27,8 @@ entity instr_dec is
         branch_out: out std_logic;
         instr: in std_logic_vector(31 downto 0); -- Input instruction
         --branch_sel: in std_logic_vector(2 downto 0); -- Branch selectoro
-        regs_in_sel: out std_logic_vector(1 downto 0) -- this chooses between ALU_res, INC(PC), memory, and buffer
+        regs_in_sel: out std_logic_vector(1 downto 0); -- this chooses between ALU_res, INC(PC), memory, and buffer
+        AUIPC_or_branch_sel: out std_logic
     );
     
     end entity;
@@ -78,7 +78,7 @@ architecture RTL of instr_dec is
                     imm <= (others => '0');
                     imm_sel <= "00"; --12 bit signed
                     regs_in_sel <= "00";
-                    addrout_sel <= '0'; 
+                    AUIPC_or_branch_sel <= '0'; -- ALU result
                 when OPIMM_code =>
                     rd_sel      <= instr(11 downto 7);
                     rs1_sel     <= instr(19 downto 15);
@@ -94,7 +94,32 @@ architecture RTL of instr_dec is
                     instr_wen   <= '0';
                     PC_wen      <= '0';
                     regs_in_sel <= "00"; -- ALU result
-                    addrout_sel <= '0'; -- ALU result
+                    AUIPC_or_branch_sel <= '0'; -- ALU result
+                when LUI_code =>
+                    rd_sel      <= instr(11 downto 7);
+                    rs1_sel     <= (others => '0'); --this must be 0 for the adder
+                    rs2_sel     <= (others => '0');
+                    funct7      <= (others => '0');
+                    funct3 <= (others => '0');
+                    op2_sel     <= '1'; 
+                    AUIPC_or_branch_sel <= '0'; -- ALU result
+                    adder_sp_sel<= '0';
+                    imm         <= instr(31 downto 12); -- this is quick might be inferred wrong
+                    imm_sel     <= "11"; -- 20 bit upper immediate
+                    regs_in_sel <= "00"; -- ALU result
+                when AIUPC_code =>
+                    rd_sel      <= instr(11 downto 7);
+                    rs1_sel     <= (others => '0');
+                    rs2_sel     <= (others => '0');
+                    funct7      <= (others => '0');
+                    funct3 <= (others => '0');
+                    op2_sel     <= '1'; --imm
+                    AUIPC_or_branch_sel <= '1'; -- ALU result
+                    adder_sp_sel<= '0';
+                    imm         <= instr(31 downto 12); -- this is quick might be inferred wrong
+                    imm_sel     <= "11"; -- 20 bit upper immediate
+                    regs_in_sel <= "00"; -- ALU result
+                
                 when others =>
                     rd_sel      <= (others => '0');
                     rs1_sel     <= (others => '0');
@@ -106,7 +131,6 @@ architecture RTL of instr_dec is
                     imm         <= (others => '0');
                     imm_sel     <= (others => '0');
                     regs_in_sel <= "00"; -- ALU result
-                    addrout_sel <= '0';
             end case;
 
     end process; 
