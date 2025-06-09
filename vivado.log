@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Mon Jun  9 22:45:00 2025
-# Process ID         : 3912
+# Start of session at: Mon Jun  9 23:35:54 2025
+# Process ID         : 14508
 # Current directory  : C:/Users/ceran/Documents/RTLBoriSoC
 # Command line       : vivado.exe -mode batch -source .\run_sim.tcl
 # Log file           : C:/Users/ceran/Documents/RTLBoriSoC/vivado.log
@@ -17,16 +17,16 @@
 # CPU Physical cores : 6
 # CPU Logical cores  : 12
 # Host memory        : 17086 MB
-# Swap memory        : 1178 MB
-# Total Virtual      : 18264 MB
-# Available Virtual  : 2680 MB
+# Swap memory        : 1379 MB
+# Total Virtual      : 18465 MB
+# Available Virtual  : 3044 MB
 #-----------------------------------------------------------
 source {.\run_sim.tcl}
 # open_project RTLBoriSoC.xpr
 INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.gen/sources_1'.
 Scanning sources...
 Finished scanning sources
-open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 620.383 ; gain = 190.777
+open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 619.719 ; gain = 192.652
 # set_property source_mgmt_mode All [current_project]
 # add_files RTLBoriSoC.srcs/sources_1/new/def_pack.vhd
 WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/def_pack.vhd' cannot be added to the project because it already exists in the project, skipping this file
@@ -97,13 +97,9 @@ INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/behav/xsim'
 "xvhdl --incr --relax -prj testbench_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/init_pack.vhd" into library xil_defaultlib
-WARNING: [VRFC 10-3165] cannot call impure function 'tokenize' from within pure function 'init_mem' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/init_pack.vhd:53]
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mem.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'mem'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'testbench'
-INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'instr_dec'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/behav/xsim'
 "xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot testbench_behav xil_defaultlib.testbench -log elaborate.log"
@@ -113,6 +109,7 @@ Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 Running: F:/Vivado/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot testbench_behav xil_defaultlib.testbench -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mnemonic_pack.vhd:86]
 WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mnemonic_pack.vhd:92]
 Completed static elaboration
 Starting simulation data flow analysis
@@ -157,7 +154,7 @@ Compiling architecture rtl of entity xil_defaultlib.mem [\mem(simulation=true)\]
 Compiling architecture structural of entity xil_defaultlib.SOC [\SOC(simulation=true)\]
 Compiling architecture tb of entity xil_defaultlib.testbench
 Built simulation snapshot testbench_behav
-run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:12 . Memory (MB): peak = 633.172 ; gain = 0.000
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 633.820 ; gain = 0.000
 INFO: [USF-XSim-69] 'elaborate' step finished in '12' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/behav/xsim'
@@ -185,112 +182,64 @@ Vivado Simulator does not yet support tracing of VHDL variables.
 ## log_wave -r /
 WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
 ## run 1000ns
-Note: First byte of RAM: 00001137
+Note: First byte of RAM: 20000113
 Time: 0 ps  Iteration: 0  Process: /testbench/UUT/mem_inst/sim_init_block/line__115  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mem.vhd
 Note: Initializing memory and SoC
 Time: 0 ps  Iteration: 0  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Memory and SoC initialized, SoC started
 Time: 20 ns  Iteration: 0  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000000000000010110111
+Note: Instruction fetched: 00010000000000000000000010010011
 Time: 30 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Trace done
 Time: 30 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000000001000100110111
+Note: Instruction fetched: 00100000000000000000000100010011
 Time: 40 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Trace done
 Time: 40 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000001111000110110111
+Note: Instruction fetched: 00000000000000000000000110010011
 Time: 50 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Trace done
 Time: 50 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000010000001000110111
+Note: Instruction fetched: 00000000000000000000001000010011
 Time: 60 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Trace done
 Time: 60 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000100000001010110111
+Note: Instruction fetched: 00000000000000000000001010010011
 Time: 70 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Trace done
 Time: 70 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111111111001100110111
+Note: Instruction fetched: 00000000000000001100000111101111
 Time: 80 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Trace done
 Time: 80 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 01111111111111111111001110110111
+Note: Instruction fetched: 00010010001100000000001000010011
 Time: 90 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Trace done
 Time: 90 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 10000000000000000000010000110111
+Note: Instruction fetched: 00000000000000000100001011101111
 Time: 100 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Trace done
 Time: 100 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00001010101010101010010010110111
+Note: Instruction fetched: 10011001100100000000001100010011
 Time: 110 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Trace done
 Time: 110 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000101010101010101010010110111
+Note: Instruction fetched: 00010000000000000000000010010011
 Time: 120 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Trace done
 Time: 120 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00010010001101000101000000110111
+Note: Instruction fetched: 00000000100000001000000111100111
 Time: 130 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Trace done
 Time: 130 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 01010101010101010101010100110111
-Time: 140 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 140 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 10101010101010101010010110110111
-Time: 150 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 150 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000000000011000110111
-Time: 160 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 160 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111111111011010110111
-Time: 170 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 170 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000000001011100110111
-Time: 180 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 180 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000000010011110110111
-Time: 190 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 190 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000000011100000110111
-Time: 200 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 200 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111111110100010110111
-Time: 210 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 210 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111111101100100110111
-Time: 220 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 220 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 01000000000000000000100110110111
-Time: 230 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 230 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00100000000000000000101000110111
-Time: 240 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 240 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00010000000000000000101010110111
-Time: 250 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 250 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Instruction fetched: 00000000000000000000000000000000
-Time: 260 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Time: 140 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Unknown instruction fetched, exiting testbench: 00000000000000000000000000000000
-Time: 260 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Time: 140 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Testbench completed.
-Time: 270 ns  Iteration: 0  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Time: 150 ns  Iteration: 0  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:25 . Memory (MB): peak = 646.473 ; gain = 26.090
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:24 . Memory (MB): peak = 647.070 ; gain = 27.352
 # close_wave_config
-INFO: [Common 17-206] Exiting Vivado at Mon Jun  9 22:45:38 2025...
+INFO: [Common 17-206] Exiting Vivado at Mon Jun  9 23:36:32 2025...

@@ -79,6 +79,9 @@ architecture RTL of instr_dec is
                     imm_sel <= "00"; --12 bit signed
                     regs_in_sel <= "00";
                     AUIPC_or_branch_sel <= '0'; -- ALU result
+                    J <= '0'; -- Not a jump instruction
+                    B <= '0'; -- Not a branch instruction
+
                 when OPIMM_code =>
                     rd_sel      <= instr(11 downto 7);
                     rs1_sel     <= instr(19 downto 15);
@@ -95,6 +98,8 @@ architecture RTL of instr_dec is
                     PC_wen      <= '0';
                     regs_in_sel <= "00"; -- ALU result
                     AUIPC_or_branch_sel <= '0'; -- ALU result
+                    J <= '0'; -- Not a jump instruction
+                    B <= '0'; -- Not a branch instruction
                 when LUI_code =>
                     rd_sel      <= instr(11 downto 7);
                     rs1_sel     <= (others => '0'); --this must be 0 for the adder
@@ -107,6 +112,8 @@ architecture RTL of instr_dec is
                     imm         <= instr(31 downto 12); -- this is quick might be inferred wrong
                     imm_sel     <= "11"; -- 20 bit upper immediate
                     regs_in_sel <= "00"; -- ALU result
+                    J <= '0'; -- Not a jump instruction
+                    B <= '0'; -- Not a branch instruction
                 when AIUPC_code =>
                     rd_sel      <= instr(11 downto 7);
                     rs1_sel     <= (others => '0');
@@ -119,6 +126,40 @@ architecture RTL of instr_dec is
                     imm         <= instr(31 downto 12); -- this is quick might be inferred wrong
                     imm_sel     <= "11"; -- 20 bit upper immediate
                     regs_in_sel <= "00"; -- ALU result
+                    J <= '0'; -- Not a jump instruction
+                    B <= '0'; -- Not a branch instruction
+                --regs_in_mux_in(0) <= ALU_res; -- ALU result input
+                --regs_in_mux_in(1) <= PC_inc_sig; -- Incremented PC input
+                --regs_in_mux_in(2) <= datain; -- Memory input
+                --regs_in_mux_in(3) <= (others => '0'); -- Buffer input, placeholder for future use 
+                when JAL_code =>
+                    rd_sel     <= instr(11 downto 7);
+                    rs1_sel     <= (others => '0'); -- this must be 0 for the adder
+                    rs2_sel     <= (others => '0');
+                    funct7      <= (others => '0');
+                    funct3 <= (others => '0');
+                    op2_sel    <= '1'; --imm offset
+                    AUIPC_or_branch_sel <= '1'; -- ALU result
+                    adder_sp_sel <= '0';
+                    imm        <= instr(31 downto 12);
+                    imm_sel    <= "10"; -- 20 bit signed immediate
+                    regs_in_sel <= "01"; -- PC incremented
+                    J <= '1'; -- Set J for unconditional jump
+                    B <= '0'; -- Not a branch instruction
+                when JALR_code =>
+                    rd_sel      <= instr(11 downto 7);
+                    rs1_sel     <= instr(19 downto 15);
+                    rs2_sel     <= (others => '0'); -- this must be 0 for the adder
+                    funct7      <= (others => '0');
+                    funct3      <= (others => '0');
+                    op2_sel     <= '1'; --imm offset
+                    AUIPC_or_branch_sel <= '1'; -- ALU result
+                    adder_sp_sel <= '0';
+                    imm         <= X"00" & instr(31 downto 20); -- this is quick might be inferred wrong
+                    imm_sel     <= "00"; -- 12 bit signed immediate
+                    regs_in_sel <= "01"; -- PC incremented
+                    J <= '1'; -- Set J for unconditional jump
+                    B <= '0'; -- Not a branch instruction
                 
                 when others =>
                     rd_sel      <= (others => '0');
