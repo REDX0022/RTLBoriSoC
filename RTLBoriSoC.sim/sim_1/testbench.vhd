@@ -4,6 +4,8 @@ use WORK.init_pack.all;
 use WORK.IO_pack.all;
 use WORK.mnemonic_pack.all;
 use WORK.mem_pack.all;
+use WORK.mem_pack.all;
+use WORK.MUX_types.all;
 
 library STD;
 use STD.TEXTIO.all;
@@ -20,15 +22,14 @@ architecture TB of testbench is
     constant trace_header: string := "OP    |RD|RS1 |IMM  | PC |   x0   |   x1   |   x2   |   x3   |   x4   |   x5   |   x6   |   x7   |   x8   |   x9   | x10   |   x11  |  x12   |   x13   |  x14   |   x15  |   x16  |   x17  |   x18  |   x19  |  x20   |   x21  |   x22  |   x23  |   x24  |   x25  |   x26  |   x27  |   x28  |   x29  |   x30  |   x31  |";
                                --     ADDI   x1 x0 001 @ 0000 00000000 00000001 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 
     
-    constant trace_path : string := "../../../../tests/trace.txt";
-    constant dump_path : string := "../../../../tests/dump.txt";
-    constant textin_path : string := "../../../../tests/textin.txt";
     signal mem_tb_in: ram_type;
     signal mem_tb_out: ram_type;
     signal instr_trace: instr_type;
     signal instr_trace_slv: std_logic_vector(31 downto 0);
     signal PC_trace: pc_type;
+    signal PC_trace_slv: std_logic_vector(31 downto 0);
     signal regs_trace: regs_type;
+    signal regs_trace_slv: vector_array(0 to 31);
 
    
     signal sim_init: bit := '0';
@@ -53,15 +54,15 @@ architecture TB of testbench is
                 SIMULATION : boolean := false
             );
             port (
-                clk      : in std_logic;
-                rst      : in std_logic
+                clk      : in std_logic := '0';  -- Clock signal
+                rst      : in std_logic := '0'  -- Reset signal
                 -- synthesis translate_off
                 ;
-                mem_sim  : in ram_type;      -- Memory simulation interface
-                sim_dump : out ram_type;     -- Memory dump for simulation
                 sim_init : in std_logic;     -- Simulation initialization signal
                 sim_instr : out std_logic_vector(31 downto 0); -- Simulation instruction trace output
-                sim_dump_en : in std_logic -- Enable memory dump for simulation
+                sim_dump_en : in std_logic; -- Enable memory dump for simulation
+                reg_sim  : out vector_array(0 to 31); -- Simulation interface for registers
+                PC_sim  : out std_logic_vector(31 downto 0) -- Simulation output for PC
                 -- synthesis translate_on
             );
         end component;
@@ -75,11 +76,11 @@ architecture TB of testbench is
         port map (
             clk      => clk,
             rst      => rst,
-            mem_sim  => mem_tb_in,      -- Memory simulation interface
-            sim_dump => mem_tb_out,     -- Memory dump for simulation
             sim_init => mem_init_SOC, -- Simulation initialization signal
             sim_instr => instr_trace_slv, -- Simulation instruction trace output
-            sim_dump_en => sim_dump_en -- Enable memory dump for simulation
+            sim_dump_en => sim_dump_en, -- Enable memory dump for simulation
+            reg_sim => regs_trace_slv, -- Simulation interface for registers
+            PC_sim => PC_trace_slv -- Simulation output for PC
         );
 
         process 
@@ -108,28 +109,51 @@ architecture TB of testbench is
         variable instrm: mnemonic_type;
         begin
             -- Initialize memory and SoC
+            -- synthesis translate_off
+            report "Initializing memory and SoC";
+            
+            --synthesis translate_on
             mem_init_SOC <= '1'; -- Set memory initialization signal
             rst <= '1';
-            mem_temp <= init_mem;
-            wait for 10 ns; -- Wait for memory initialization
-            mem_tb_out <= mem_to_ram(mem_temp); --in the def pack we need to convert the mem_type to ram_type
-            wait for 10 ns;
+            wait for 10 ns; -- Wait for reset to stabilize
+            --mem_temp <= init_mem;
+            --wait for 10 ns; -- Wait for memory initialization
+            --mem_tb_out <= mem_to_ram(mem_temp); --in the def pack we need to convert the mem_type to ram_type
+            --wait for 10 ns;
             mem_init_SOC <= '0'; -- Clear memory initialization signal
             rst <= '0'; -- Release reset
-            
-            
-            instr_trace <= to_bitvector(instr_trace_slv);
+            wait for 10 ns;
+            -- synthesis translate_off
+            report "Memory and SoC initialized, SoC started"; 
+            --synthesis translate_on
             -- Start the first instruction
             --Make the trace look nice
             write(l, trace_header);
             writeline(trace_f, l);
             test_loop: loop
-             --Implement clock for HERE and start rising and falling edge
+                --Implement clock for HERE and start rising and falling edge
                 clk <= '1';
                 wait for 5 ns; -- Clock high time
                 clk <= '0';
                 wait for 5 ns; -- Clock low time
                 --CPU done
+                
+                wait for 0 ns;
+                wait for 0 ns;
+                wait for 0 ns;
+                wait for 0 ns;
+                wait for 0 ns;
+                wait for 0 ns;
+                instr_trace <= to_bitvector(instr_trace_slv);
+                regs_trace <= vector_array_to_regs(regs_trace_slv); 
+                PC_trace <= slice_msb(to_bitvector(PC_trace_slv)(15 downto 0)+X"FFFC"); --PC is taken at the wrong time so we adjust it
+                wait for 0 ns;
+                wait for 0 ns;
+                wait for 0 ns;
+                wait for 0 ns;
+                wait for 0 ns;
+                wait for 0 ns;
+                report "Instruction fetched: " & bitvec_to_bitstring(instr_trace);
                 
                 -- Now do your trace/logging
                 code    := instr_trace(6 downto 0);
@@ -340,7 +364,7 @@ architecture TB of testbench is
             sim_dump_en <= '1';
             wait for 10 ns;
 
-            dump_memory(dump_path, ram_to_mem(mem_tb_in));
+            --dump_memory(dump_path, ram_to_mem(mem_tb_in));
             file_close(trace_f);
             file_close(dump_f);            
             report "Testbench completed.";

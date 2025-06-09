@@ -49,7 +49,7 @@ package body init_pack is
    function init_mem return mem_type is
         variable mem: mem_type := (others => X"00");
         begin
-          
+            report "Initalizeing memory IDK why its not caltjgjksld?";
             mem := tokenize("../../../../tests/textin.txt", mem);
             return mem;
     end function;

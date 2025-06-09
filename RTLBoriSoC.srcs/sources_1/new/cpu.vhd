@@ -6,6 +6,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 library WORK;
 use work.MUX_types.all; -- Import the MUX types package
+use WORK.mem_pack.all; -- Import the memory package
 
 entity cpu is
     generic (
@@ -16,10 +17,14 @@ entity cpu is
         rst: in std_logic;
         addrout: out std_logic_vector(31 downto 0); -- Address output for memory
         dataout: out std_logic_vector(31 downto 0); -- Data output for memory
-        datain: in std_logic_vector(31 downto 0)   -- Data input for memory
+        datain: in std_logic_vector(31 downto 0);   -- Data input for memory
+        instrin: in std_logic_vector(31 downto 0); -- Instruction input, can be used for simulation
+        addrPC: out std_logic_vector(31 downto 0) -- Address input for Program Counter
         -- synthesis translate_off
         ;
-        sim_instr: out std_logic_vector(31 downto 0) := (others => '0')
+        sim_instr: out std_logic_vector(31 downto 0) := (others => '0');
+        reg_sim: out vector_array(0 to 31) := (others => (others => '0')); -- Simulation interface for registers
+        PC_sim : out std_logic_vector(31 downto 0) := (others => '0') -- Simulation interface for Program Counter
         -- synthesis translate_on
     );
 end entity;
@@ -49,6 +54,7 @@ architecture Structural of cpu is
     signal rd_sel: std_logic_vector(4 downto 0) := (others => '0'); -- Register destination selection 
 
     signal ALU_res: std_logic_vector(31 downto 0) := (others => '0'); -- ALU result signal
+    signal adder_res: std_logic_vector(31 downto 0) := (others => '0'); -- ALU adder result signal, not used in this example
     signal PC_branch_mux_in: vector_array(0 to 1) := (others => (others => '0'));
 
     signal regs_in_sel: std_logic_vector(1 downto 0) := (others => '0'); -- this chooses between ALU_res, INC(PC), memory, and buffer
@@ -73,6 +79,7 @@ architecture Structural of cpu is
             imm_sel: in std_logic_vector(1 downto 0); -- selector for immediate type, 00 for 12-bit signed, 01 for 12-bit unsigned, 10 for 20-bit signed, 11 for upper 20 bits unsigned, IMPORTANT: LSB is the sign selector(0 for signed 1 for signed)
             op : in std_logic_vector(8 downto 0); -- operation selector
             result : out std_logic_vector(31 downto 0);
+            adder_res : out std_logic_vector(31 downto 0); -- ALU adder result signal, not used in this example
             subtr : in std_logic; -- flag to indicate if the operatioon is a subtraction, this might be poor design
             branch: out std_logic; -- flag to indicate if to use the address from the ALU or the PC increment
             funct3: in std_logic_vector(2 downto 0); -- Function code for the instruction
@@ -139,6 +146,10 @@ architecture Structural of cpu is
             dataout1: out std_logic_vector(31 downto 0);
             dataout2: out std_logic_vector(31 downto 0);
             dataout3: out std_logic_vector(31 downto 0)
+            -- synthesis translate_off
+            ;
+            reg_sim: out vector_array(0 to 31) -- Simulation interface for registers
+            -- synthesis translate_on
         );
     end component;
 
@@ -174,6 +185,7 @@ architecture Structural of cpu is
                 imm => imm,
                 imm_sel => imm_sel,
                 op => (others => '0'), -- Placeholder for operation selector
+                adder_res => adder_res,
                 result => ALU_res, -- Output not used in this example
                 subtr => funct7(5), --TODO: check this 
                 branch => instr_branch, 
@@ -196,6 +208,10 @@ architecture Structural of cpu is
                 dataout1 => r1, 
                 dataout2 => r2, 
                 dataout3 => adder_r1_sp 
+                -- synthesis translate_off
+                ,
+                reg_sim => reg_sim -- Simulation interface for registers
+                -- synthesis translate_on
             );
 
         regs_in_mux: MUX
@@ -223,8 +239,8 @@ architecture Structural of cpu is
                 rst => rst,
                 clk => clk,
                 en => '1', --This should be fine, because we take an instruction every clock cycle
-                datain => (others => '0'), -- Placeholder for instruction input
-                dataout => instr -- Output not used in this example
+                datain => instrin,
+                dataout => instr 
             );
         instr_decoder_inst: instr_dec
             port map(
@@ -277,7 +293,7 @@ architecture Structural of cpu is
                 dataout => PC_in_sig -- Output not used in this example
             );
             PC_branch_mux_in(0) <= PC_inc_sig; -- Incremented PC input
-            PC_branch_mux_in(1) <= ALU_res; 
+            PC_branch_mux_in(1) <= adder_res; 
         
         --------------------MEM--------------------
         mem_addrout_mux: MUX
@@ -286,24 +302,29 @@ architecture Structural of cpu is
             )
             port map(
                 sel => to_slv(addrout_sel), -- Select signal for the memory address output
-                datain => mem_addrout_mux_in, -- Placeholder for memory address output
-                dataout => addrout -- Output not used in this example
+                datain => mem_addrout_mux_in, -- P,laceholder for memory address output
+                dataout => addrPC -- Output not used in this example
             );
         mem_addrout_mux_in(0) <= PC_sig; -- Connect to the PC signal
         mem_addrout_mux_in(1) <= ALU_res; -- Connect to the ALU result signal
         
-        instr <= datain; --This should be fine
+       
 
 
         -------------------- Simulation-only instruction trace output --------------------
         -- synthesis translate_off
         sim_trace: if SIMULATION generate
-            process
+            process(instr)
             begin
-                wait until rising_edge(clk);
-                wait for 0 ns;
-                sim_instr <= instr;
+                
+                    sim_instr <= instr;
+                
             end process;
+            process(PC_sig)
+            begin
+                PC_sim <= PC_sig; -- Output the current value of the Program Counter
+            end process;
+
         end generate;
         -- synthesis translate_on
         

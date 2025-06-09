@@ -17,6 +17,9 @@ add_files RTLBoriSoC.srcs/sources_1/new/reg.vhd
 add_files RTLBoriSoC.srcs/sources_1/new/ANDf.vhd
 add_files RTLBoriSoC.srcs/sources_1/new/ANDf.vhd
 add_files RTLBoriSoC.srcs/sources_1/new/mem.vhd
+add_files RTLBoriSoC.srcs/sources_1/new/mem_pack.vhd
+add_files RTLBoriSoC.srcs/sources_1/new/SRf.vhd
+add_files RTLBoriSoC.srcs/sources_1/new/regs.vhd
 
 
 add_files RTLBoriSoC.srcs/sources_1/new/SOC.vhd

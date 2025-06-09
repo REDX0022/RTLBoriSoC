@@ -5,21 +5,22 @@ use IEEE.NUMERIC_STD.ALL;
 
 library WORK;
 use WORK.mem_pack.all; -- Import the memory package
+use WORK.MUX_types.all; -- Import the MUX types package
 
 entity SOC is
     generic (
         SIMULATION : boolean := false
     );
     port (
-        clk      : in std_logic;
-        rst      : in std_logic
+        clk      : in std_logic := '0';  -- Clock signal
+        rst      : in std_logic := '0'  -- Reset signal
         -- synthesis translate_off
         ;
-        mem_sim  : in ram_type;      -- Memory simulation interface
-        sim_dump : out ram_type;     -- Memory dump for simulation
         sim_init : in std_logic;      -- Simulation initialization signal
         sim_instr : out std_logic_vector(31 downto 0); -- Simulation instruction trace output
-        sim_dump_en : in std_logic -- Enable memory dump for simulation
+        sim_dump_en : in std_logic; -- Enable memory dump for simulation
+        reg_sim  : out vector_array(0 to 31); -- Simulation interface for registers
+        PC_sim  : out std_logic_vector(31 downto 0) -- Simulation output for PC
         -- synthesis translate_on
     );
 end entity;
@@ -36,30 +37,36 @@ architecture Structural of SOC is
             rst       : in std_logic;
             addrout   : out std_logic_vector(31 downto 0);
             dataout   : out std_logic_vector(31 downto 0);
-            datain    : in std_logic_vector(31 downto 0)      
-                
+            datain    : in std_logic_vector(31 downto 0);
+            instrin : in std_logic_vector(31 downto 0); -- Input instruction
+            addrPC   : out std_logic_vector(31 downto 0) -- Address for PC    
+            
             -- synthesis translate_off
             ;
-            sim_instr : out std_logic_vector(31 downto 0) -- Simulation instruction trace output
+            sim_instr : out std_logic_vector(31 downto 0); -- Simulation instruction trace output
+            reg_sim  : out vector_array(0 to 31); -- Simulation interface for registers
+            PC_sim  : out std_logic_vector(31 downto 0) -- Simulation output for PC
             -- synthesis translate_on
         );
     end component;
 
-    -- Explicit MEM component declaration
+
     component mem is
         generic (
             SIMULATION : boolean := false
         );
         port(
-            clk        : in  std_logic;
-            en         : in  std_logic;
-            addr       : in  std_logic_vector(31 downto 0);
-            datain     : in  std_logic_vector(31 downto 0);
-            dataout    : out std_logic_vector(31 downto 0)
+            clk        : in  std_logic := '0';
+            en         : in  std_logic := '0'; -- Enable signal for write operation
+            addr       : in  std_logic_vector(31 downto 0) := (others => '0'); 
+            datain     : in  std_logic_vector(31 downto 0) := (others => '0');
+            dataout    : out std_logic_vector(31 downto 0) := (others => '0');
+            addrPC   : in  std_logic_vector(31 downto 0) := (others => '0');
+            instrout : out std_logic_vector(31 downto 0) := (others => '0')
             -- synthesis translate_off
             ;
-            mem_sim    : in  ram_type; -- Memory simulation interface
-            sim_dump   : out ram_type;
+            --mem_sim    : in  ram_type; -- Memory simulation interface
+            --sim_dump   : out ram_type;
             sim_init   : in  std_logic;
             sim_dump_en : in  std_logic -- Enable memory dump for simulation
             -- synthesis translate_on
@@ -70,6 +77,8 @@ architecture Structural of SOC is
     signal addr_sig    : std_logic_vector(31 downto 0) := (others => '0');
     signal dataout_sig : std_logic_vector(31 downto 0) := (others => '0');
     signal datain_sig  : std_logic_vector(31 downto 0) := (others => '0');
+    signal instrout_sig : std_logic_vector(31 downto 0) := (others => '0');
+    signal addrPC_sig : std_logic_vector(31 downto 0) := (others => '0');
 
     -- synthesis translate_off
     signal sim_instr_sig : std_logic_vector(31 downto 0);
@@ -86,10 +95,15 @@ begin
             rst       => rst,
             addrout   => addr_sig,
             dataout   => datain_sig,
-            datain    => dataout_sig
+            datain    => dataout_sig,
+            instrin   => instrout_sig, -- Input instruction
+            addrPC   => addrPC_sig -- Address for PC
             -- synthesis translate_off
             ,
-            sim_instr => sim_instr_sig
+            sim_instr => sim_instr_sig,
+            reg_sim => reg_sim,
+            PC_sim => PC_sim
+
             -- synthesis translate_on
         );
 
@@ -99,14 +113,16 @@ begin
         )
         port map (
             clk      => clk,
-            en       => '1',
+            en       => '0', --disable memory writes for now
             addr     => addr_sig,
             datain   => datain_sig,
-            dataout  => dataout_sig
+            dataout  => dataout_sig,
+            instrout => instrout_sig,
+            addrPC   => addrPC_sig
             -- synthesis translate_off
             ,
-            mem_sim  => mem_sim,
-            sim_dump => sim_dump,
+            --mem_sim  => mem_sim,
+            --sim_dump => sim_dump,
             sim_init => sim_init,
             sim_dump_en => sim_dump_en
             -- synthesis translate_on
@@ -114,12 +130,12 @@ begin
 
     -- synthesis translate_off
     sim_trace: if SIMULATION generate
-        process
+        process(sim_instr_sig)
         begin
-            if rising_edge(clk) then
-                wait for 0 ns; -- ensures you see the updated value after register update
+            
+               
                 sim_instr <= sim_instr_sig;
-            end if;
+            
         end process;
     end generate;
     -- synthesis translate_on

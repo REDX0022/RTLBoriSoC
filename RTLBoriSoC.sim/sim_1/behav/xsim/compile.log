@@ -1,6 +1,4 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/def_pack.vhd" into library xil_defaultlib
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mnemonic_pack.vhd" into library xil_defaultlib
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/init_pack.vhd" into library xil_defaultlib
-ERROR: [VRFC 10-2987] 'io_pack' is not compiled in library 'xil_defaultlib' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/init_pack.vhd:29]
-ERROR: [VRFC 10-9458] unit 'init_pack' is ignored due to previous errors [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/init_pack.vhd:41]
-INFO: [VRFC 10-8704] VHDL file 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/init_pack.vhd' is ignored due to errors
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SOC.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'SOC'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'cpu'

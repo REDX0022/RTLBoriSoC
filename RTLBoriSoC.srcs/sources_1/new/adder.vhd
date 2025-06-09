@@ -27,9 +27,9 @@ begin
         --sum <= sum_var; -- Assign the result to the output
         case subtr is
             when '0' => -- addition
-                sum <= std_logic_vector(unsigned(a) + unsigned(b)); -- this infers an adder
+                sum <= std_logic_vector(signed(a) + signed(b)); -- this infers an adder
             when '1' => -- subtraction
-                sum <= std_logic_vector(unsigned(a) - unsigned(b)); -- this infers a subtractor
+                sum <= std_logic_vector(signed(a) - signed(b)); -- this infers a subtractor
             when others =>
                 sum <= (others => '0'); -- default case, set sum to zero
         end case;

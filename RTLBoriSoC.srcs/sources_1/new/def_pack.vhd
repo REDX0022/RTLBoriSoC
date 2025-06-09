@@ -28,9 +28,14 @@ use IEEE.NUMERIC_STD.ALL;
 
 library WORK;
 use WORK.mem_pack.all; -- Import the memory package
+use WORK.MUX_types.all; -- Import the MUX types package
 
 
 package def_pack is
+    
+    constant trace_path : string := "../../../../tests/trace.txt";
+    constant dump_path : string := "../../../../tests/dump.txt";
+    constant textin_path : string := "../../../../tests/textin.txt";
     ---------------------Fundemental constants and types------------------------
     constant XLEN: integer := 32; -- to make type conversions bearable these constants will be useless
     constant IALLIGN: integer:= 16; --makes sense to be 16 since our whole cput is 16Bit
@@ -141,6 +146,7 @@ package def_pack is
 
     function mem_to_ram(mem: mem_type) return ram_type;
     function ram_to_mem(ram: ram_type) return mem_type;
+    function vector_array_to_regs(vec: vector_array) return regs_type;
 
     --------------------Sign and Zero extentinon functions-------------------
 
@@ -360,7 +366,9 @@ package body def_pack is
         variable ram: ram_type;
         begin
             for i in mem'range loop
-                ram(i) := to_stdlogicvector(mem(i));
+                if(i mod 4 = 0) then
+                    ram(i/4) :=   to_stdlogicvector(mem(i+3)) & to_stdlogicvector(mem(i+2)) & to_stdlogicvector(mem(i+1)) & to_stdlogicvector(mem(i)); --THIS MIGHT BE WRONG ORDER
+                end if;
             end loop;
             return ram;
     end function;
@@ -369,9 +377,22 @@ package body def_pack is
         variable mem: mem_type;
         begin
             for i in ram'range loop
-                mem(i) := to_bitvector(ram(i));
+                mem(4*i) := to_bitvector(ram(i))(7 downto 0);
+                mem(4*i+1) := to_bitvector(ram(i))(15 downto 8);
+                mem(4*i+2) := to_bitvector(ram(i))(23 downto 16);
+                mem(4*i+3) := to_bitvector(ram(i))(31 downto 24);
+
             end loop;
             return mem;
+    end function;
+
+    function vector_array_to_regs(vec: vector_array) return regs_type is
+        variable regs: regs_type;
+        begin
+            for i in vec'range loop
+                regs(i) := to_bitvector(vec(i));
+            end loop;
+            return regs;
     end function;
 
     ---------------------Sign and Zero extentinon functions--------------

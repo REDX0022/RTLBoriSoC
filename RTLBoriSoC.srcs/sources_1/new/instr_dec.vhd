@@ -62,6 +62,10 @@ architecture RTL of instr_dec is
     decode_opcode: process(instr) is
         begin
             --this is just a big lut
+            --imm_mux_in(0) <= imm12_signed; -- 12-bit signed immediate
+            --imm_mux_in(1) <= imm12_unsigned; -- 12-bit unsigned immediate
+            --imm_mux_in(2) <= imm20_signed; -- 20-bit signed immediate
+            --imm_mux_in(3) <= imm20_upper; -- upper 20 immediate bits 
             case instr(6 downto 0) is
                 when OP_code =>
                     rd_sel <= instr(11 downto 7);
@@ -72,7 +76,7 @@ architecture RTL of instr_dec is
                     op2_sel <= '0'; -- ALU second operand is rs2
                     adder_sp_sel <= '0';
                     imm <= (others => '0');
-                    imm_sel <= (others => '0');
+                    imm_sel <= "00"; --12 bit signed
                     regs_in_sel <= "00";
                     addrout_sel <= '0'; 
                 when OPIMM_code =>
@@ -81,7 +85,7 @@ architecture RTL of instr_dec is
                     rs2_sel     <= (others => '0');
                     op2_sel     <= '1'; -- ALU second operand is immediate
                     imm         <= X"00" & instr(31 downto 20); -- this is quick might be inferred wrong
-                    funct7      <= instr(31 downto 25); -- just the 30 bit is used for subtr and SRA
+                    --funct7      <= instr(31 downto 25); -- just the 30 bit is used for subtr and SRA
                     imm_sel     <= "00"; -- 12 bit signed
                     adder_sp_sel<= '0'; 
                     funct3 <= instr(14 downto 12); -- this is made such that we dont need a translator for OP and OPIMM

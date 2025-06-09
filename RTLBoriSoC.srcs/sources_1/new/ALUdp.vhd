@@ -31,6 +31,7 @@ entity ALUdp is
         imm_sel: in std_logic_vector(1 downto 0); -- selector for immediate type, 00 for 12-bit signed, 01 for 12-bit unsigned, 10 for 20-bit signed, 11 for upper 20 bits unsigned, IMPORTANT: LSB is the sign selector(0 for signed 1 for signed)
         op : in std_logic_vector(8 downto 0); -- operation selector
         result : out std_logic_vector(31 downto 0);
+        adder_res: out std_logic_vector(31 downto 0); -- result of the adder, this is not used in this ALU, but might be useful later
         subtr : in std_logic; -- flag to indicate if the operatioon is a subtraction, this might be poor design, and also SRA
         branch: out std_logic; -- flag to indicate if to use the address from the ALU or the PC increment
         funct3: in std_logic_vector(2 downto 0); -- selector for the ALU result, this is used to select the result of the ALU operation
@@ -53,7 +54,7 @@ architecture RTL of ALUdp is
     signal imm20_signed : std_logic_vector(31 downto 0); -- 20 bit signed immediate
     signal imm20_upper : std_logic_vector(31 downto 0); -- upper 20 bits of an unsigned immediate
         
-    signal adder_res: std_logic_vector(31 downto 0); -- result of the adder, this is not used in this ALU, but might be useful later
+    signal adder_res_sig: std_logic_vector(31 downto 0); -- this is the result of the adder operation, this is not used in this ALU, but might be useful later
     signal sll_res: std_logic_vector(31 downto 0); -- result of the SLL operation, this is not used in this ALU, but might be useful later
     signal sr_res: std_logic_vector(31 downto 0); -- result of the SRL operation, this is not used in this ALU, but might be useful later
     signal xor_res: std_logic_vector(31 downto 0); -- result of the XOR operation, this is not used in this ALU, but might be useful later
@@ -182,21 +183,21 @@ architecture RTL of ALUdp is
         end component;
 
         
-        component cmp is
+        component cmpf is
             port(
                 a : in std_logic_vector(31 downto 0);
                 b : in std_logic_vector(31 downto 0);
-                eq : out std_logic;
-                lt : out std_logic
+                EQ : out std_logic;
+                LT : out std_logic
             );
         end component;
 
 
-        component cmpu is
+        component cmpuf is
             port(
                 a : in std_logic_vector(31 downto 0);
                 b : in std_logic_vector(31 downto 0);
-                ltu : out std_logic
+                LTU : out std_logic
             );
         end component;
 
@@ -213,7 +214,7 @@ architecture RTL of ALUdp is
             dataout => result
         );
     -- Assign the correct order to res_mux_in after the mux_res instance
-    res_mux_in(0) <= adder_res;
+    res_mux_in(0) <= adder_res_sig;
     res_mux_in(1) <= branch_ext;
     res_mux_in(2) <= branch_ext;
     res_mux_in(3) <= xor_res;
@@ -329,11 +330,11 @@ architecture RTL of ALUdp is
         port map (
             a => adder_op1,
             b => adder_op2,
-            sum => adder_res, 
+            sum => adder_res_sig, 
             subtr => subtr --fill this signal
         );
     
-    cmp_inst: cmp
+    cmpf_inst: cmpf
         port map (
             a => op1,
             b => op2,
@@ -341,7 +342,7 @@ architecture RTL of ALUdp is
             LT => cmp_LT
         );    
     
-    cmpU_inst: cmpU
+    cmpUf_inst: cmpUf
         port map (
             a => op1,
             b => op2,
@@ -410,5 +411,6 @@ architecture RTL of ALUdp is
     cmp_NE <= not cmp_EQ;
     cmp_GEU <= not(cmp_EQ or cmp_LTU);
     branch <= branch_sig; -- this is the output of the branch MUX1, it indicates if the branch condition is met
-
+    op1 <= r1;  --TODO: CHECK THIS 
+    adder_res <= adder_res_sig; -- this is the output of the adder operation, this is not used in this ALU, but might be useful later
 end architecture RTL;

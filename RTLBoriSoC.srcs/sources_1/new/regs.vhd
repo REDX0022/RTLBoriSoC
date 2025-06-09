@@ -3,7 +3,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-use WORk.MUX_types;
+use WORk.MUX_types.all;
+use WORK.mem_pack.all;
 
 entity regs is
     port (
@@ -18,15 +19,20 @@ entity regs is
         dataout1 : out std_logic_vector(31 downto 0);
         dataout2 : out std_logic_vector(31 downto 0);
         dataout3 : out std_logic_vector(31 downto 0)
+        -- synthesis translate_off
+        ;
+        reg_sim : out vector_array(0 to 31)  -- Simulation interface for registers
+        -- synthesis translate_on 
     );
 end entity;
 
 
 
 architecture RTL of regs is
-
-    signal reg_array : array (0 to 31) of std_logic_vector(31 downto 0);
+    --type regs_type is array (0 to 31) of std_logic_vector(31 downto 0);
     -- Explicit reg component declaration
+    signal reg_array: vector_array(0 to 31) := (others => (others => '0'));
+    signal en_internal: std_logic_vector(0 to 31);
     component reg is
         generic(
             w: natural;
@@ -48,7 +54,7 @@ architecture RTL of regs is
         );
         port (
             sel     : in std_logic_vector(N-1 downto 0);
-            datain  : in vector_array(0 to 2**N - 1);
+            datain  : in vector_array(0 to 2**N-1);
             dataout : out std_logic_vector(31 downto 0)
         );
     end component;
@@ -66,12 +72,13 @@ begin
             port map (
                 clk => clk,
                 rst => rst,
-                en => (en and (selin = std_logic_vector(to_unsigned(i, 5)))), -- write enable for selected register
+                en =>  en_internal(i),
                 datain => datain,
                 dataout => reg_array(i)
             );
+        en_internal(i) <= '1' when selin = std_logic_vector(to_unsigned(i, 5)) and en = '1' else '0';
     end generate;
-
+    
     -- Output multiplexers using MUX component
     mux1_inst: MUX
         generic map (
@@ -102,4 +109,12 @@ begin
             datain  => reg_array,
             dataout => dataout3
         );
+    -- Simulation interface for registers
+    -- synthesis translate_off
+    process(reg_array)
+    begin
+        reg_sim <= reg_array;
+    end process;
+    -- synthesis translate_on
+
 end architecture;

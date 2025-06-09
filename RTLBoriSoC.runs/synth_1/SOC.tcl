@@ -72,21 +72,28 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
   C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd
-  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/adder.vhd
-  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/subtr.vhd
   C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ANDf.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mem_pack.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/def_pack.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mnemonic_pack.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/IO_pack.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX1.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ORf.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SLLf.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/XORf.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/adder.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/init_pack.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mem.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
   C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd
   C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd
-  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SLLf.vhd
-  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ORf.vhd
-  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/XORf.vhd
-  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ANDf.vhd
-  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd
-  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd
-  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
-  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX1.vhd
   C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SOC.vhd
-  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mem.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/subtr.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SRf.vhd
+  C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
