@@ -46,7 +46,8 @@ set_property top testbench [get_filesets sim_1]
 set_property USED_IN {simulation} [get_files RTLBoriSoC.sim/sim_1/testbench.vhd]
 
 # Launch simulation
-launch_simulation
+launch_simulation 
 
+-run 10000ns
 # Close the wave window (optional, disables waveform display)
 close_wave_config

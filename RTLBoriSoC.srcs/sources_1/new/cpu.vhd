@@ -185,7 +185,7 @@ architecture Structural of cpu is
             port map(
                 r1 => r1_or_PC,
                 r2 => r2,
-                adder_r1_sp => regs_sp_out_sig, -- Stack pointer output, not used in this example
+                adder_r1_sp => PC_sig, -- TODO: Merge this with AUIPC 
                 adder_sp_sel => adder_sp_sel,
                 imm => imm,
                 imm_sel => imm_sel,
@@ -207,7 +207,7 @@ architecture Structural of cpu is
                 en => '1',--TODO: Figure out what to do with this
                 sel1 => rs1_sel, -- rs1 selection
                 sel2 => rs2_sel, -- rs2 selection
-                sel3 => "00000", -- WARNING: I dont really remember what this is for
+                sel3 => "00000",
                 selin => rd_sel, -- Write select port
                 datain => regs_in_sig, 
                 dataout1 => r1, 

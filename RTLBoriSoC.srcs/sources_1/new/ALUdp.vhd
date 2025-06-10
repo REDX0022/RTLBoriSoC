@@ -312,7 +312,7 @@ architecture RTL of ALUdp is
     adder_op_sel_mux_in(1) <= adder_r1_sp;
 
     -- MUX for adder op2 selection
-    adder_imm_sp_inst: MUX
+    adder_imm_sp_inst: MUX --TODO: Figure out if this is needed
         generic map (
             N => 1
         )
@@ -322,7 +322,7 @@ architecture RTL of ALUdp is
             dataout => adder_op2
         );
     adder_imm_sel_mux_in(0) <= op2;
-    adder_imm_sel_mux_in(1) <= (others => '0'); -- or adder_imm_sp if you have a signal for this
+    adder_imm_sel_mux_in(1) <= imm12_signed; -- or adder_imm_sp if you have a signal for thisb
     
 
     

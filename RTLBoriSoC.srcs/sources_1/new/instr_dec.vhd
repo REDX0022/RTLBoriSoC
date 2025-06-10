@@ -139,8 +139,8 @@ architecture RTL of instr_dec is
                     funct7      <= (others => '0');
                     funct3 <= (others => '0');
                     op2_sel    <= '1'; --imm offset
-                    AUIPC_or_branch_sel <= '1'; -- ALU result
-                    adder_sp_sel <= '0';
+                    AUIPC_or_branch_sel <= '0'; -- ALU result
+                    adder_sp_sel <= '1';
                     imm        <= instr(31 downto 12);
                     imm_sel    <= "10"; -- 20 bit signed immediate
                     regs_in_sel <= "01"; -- PC incremented
@@ -160,7 +160,20 @@ architecture RTL of instr_dec is
                     regs_in_sel <= "01"; -- PC incremented
                     J <= '1'; -- Set J for unconditional jump
                     B <= '0'; -- Not a branch instruction
-                
+                when BRANCH_code =>
+                    rd_sel      <= (others => '0'); -- No destination register for branch instructions
+                    rs1_sel     <= instr(19 downto 15);
+                    rs2_sel     <= instr(24 downto 20);
+                    funct7      <= (others => '0');
+                    funct3      <= instr(14 downto 12);
+                    op2_sel     <= '0'; -- ALU second operand is rs2
+                    adder_sp_sel<= '1'; -- Use adder for branch offset calculation
+                    imm         <= X"00" & instr(31 downto 25) & instr(11 downto 7); -- this is quick might be inferred wrong
+                    imm_sel     <= "00"; -- This imm path is not used here, the adder_sp_op path is used
+                    regs_in_sel <= "11"; -- TODO: change this, thiw will be bad if not CHANGED FOR LOAD STORE
+                    J <= '0'; -- Not a jump instruction
+                    B <= '1'; -- Set B for branch instruction
+                    --reg_wen     <= '0'; --TODO: IMPLEMENT THIS
                 when others =>
                     rd_sel      <= (others => '0');
                     rs1_sel     <= (others => '0');
