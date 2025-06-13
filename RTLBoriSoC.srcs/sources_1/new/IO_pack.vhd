@@ -312,7 +312,7 @@ package body IO_pack is
 
                         
             when others =>
-                    report "Found illegal/comment line line";
+                    report "Found illegal/\mment line line";
                    
         end case;
         

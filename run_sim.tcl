@@ -33,6 +33,8 @@ add_files RTLBoriSoC.srcs/sources_1/new/INCf.vhd
 add_files RTLBoriSoC.srcs/sources_1/new/cmpf.vhd
 add_files RTLBoriSoC.srcs/sources_1/new/cmpuf.vhd
 
+add_files RTLBoriSoC.srcs/sources_1/new/FSM.vhd
+
 
 add_files RTLBoriSoC.sim/sim_1/testbench.vhd
 

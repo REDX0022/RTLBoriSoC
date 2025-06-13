@@ -19,7 +19,8 @@ entity cpu is
         dataout: out std_logic_vector(31 downto 0); -- Data output for memory
         datain: in std_logic_vector(31 downto 0);   -- Data input for memory
         instrin: in std_logic_vector(31 downto 0); -- Instruction input, can be used for simulation
-        addrPC: out std_logic_vector(31 downto 0) -- 
+        addrPC: out std_logic_vector(31 downto 0);
+        mem_wen: out std_logic -- Memory write enable signal
         -- synthesis translate_off
         ;
         sim_instr: out std_logic_vector(31 downto 0) := (others => '0');
@@ -68,8 +69,37 @@ architecture Structural of cpu is
 
     signal mem_addrout_mux_in: vector_array(0 to 1) := (others => (others => '0')); -- Input for the memory address output multiplexer
 
+    signal buffer_wen_sig: std_logic := '0'; -- Memory write enable signal
+    signal mem_regs_datain_sig : std_logic_vector(31 downto 0) := (others => '0'); -- Memory data input signal
+    signal mem_datain_mux_in: vector_array(0 to 7) := (others => (others => '0')); -- Input for the memory data input multiplexer
+
+    signal RW_op: std_logic := '0'; -- Read/Write operation signal, set to '1' for write operations
+    signal R_sig: std_logic := '0'; -- Read signal, not used in this example
+    signal W_sig: std_logic := '0'; -- Write signal, not used in this example
+
+    -----------------ENABLE SIGNALS------------------
+    signal buffer_wen: std_logic := '0'; -- Write buffer enable signal
+    signal regs_wen: std_logic := '0'; -- Register write enable signal
+    signal instr_wen: std_logic := '0'; -- Instruction write enable signal
+    signal PC_wen: std_logic := '0'; -- Program Counter write enable signal
+    signal write_buffer_en: std_logic := '0'; -- Write buffer enable signal for write operation
+
+    signal mem_wen_FSM: std_logic := '0'; -- Memory write enable signal for FSM
 
 
+
+    component FSM is
+        port (
+            clk: in std_logic;
+            rst: in std_logic;
+            RW_op: in std_logic; -- Read/Write operation signal
+            mem_en: out std_logic; -- Memory enable signal for write operation
+            reg_en: out std_logic; -- Register enable signal for write operation
+            PC_en: out std_logic; -- PC enable signal for write operation
+            instr_en: out std_logic; -- Instruction enable signal for write operation
+            write_buffer_en: out std_logic -- Write buffer enable signal for write operation
+        );
+    end component;
     --signal mem_dataout: std_logic_vector(31 downto 0) := (others => '0'); -- Memory data output signal
     --signal mem_addrout: std_logic_vector(31 downto 0) := (others => '0'); -- Memory address output signal
     --signal mem_en: std_logic := '0'; --TODO: Change this when writing the write buffer
@@ -102,9 +132,9 @@ architecture Structural of cpu is
     component instr_dec is
         port(
         reg_wen: out std_logic;
-        buffer_wen: out std_logic;
         instr_wen: out std_logic;
         PC_wen: out std_logic;
+        buffer_wen: out std_logic; -- Memory write enable signal
         adder_sp_sel: out std_logic;
         imm_sel: out std_logic_vector(1 downto 0);
         op2_sel: out std_logic;
@@ -119,7 +149,9 @@ architecture Structural of cpu is
         --branch_sel: in std_logic_vector(2 downto 0); -- Branch selector
         funct3: out std_logic_vector(2 downto 0); -- Function code for the instruction
         regs_in_sel: out std_logic_vector(1 downto 0); -- this chooses between ALU_res, INC(PC), memory, and buffer
-        AUIPC_or_branch_sel: out std_logic -- Selector for AUIPC or branch operation
+        AUIPC_or_branch_sel: out std_logic; -- Selector for AUIPC or branch operation
+        R: out std_logic; -- Read signal, not used in this example
+        W: out std_logic -- Write signal, not used in this example
         );
     end component;
 
@@ -179,7 +211,27 @@ architecture Structural of cpu is
             dataout: out std_logic -- Output data
         );
     end component;
+    component signext is
+        generic(
+            w: natural -- Width of the input to sign-extend
+        );
+        port(
+            imm: in std_logic_vector(w-1 downto 0); -- Input immediate value
+            imm_extended: out std_logic_vector(31 downto 0) -- Sign-extended output
+        );
+    end component;
+    component zeroext is
+        generic(
+            w: natural -- Width of the input to zero-extend
+        );
+        port(
+            imm: in std_logic_vector(w-1 downto 0); -- Input immediate value
+            imm_extended: out std_logic_vector(31 downto 0) -- Zero-extended output
+        );
+    end component;
     begin
+        
+       
         --------------------ALU--------------------
         ALUdp_inst: ALUdp
             port map(
@@ -204,7 +256,7 @@ architecture Structural of cpu is
             port map(
                 clk => clk,
                 rst => rst,
-                en => '1',--TODO: Figure out what to do with this
+                en => regs_wen,--TODO: Figure out what to do with this
                 sel1 => rs1_sel, -- rs1 selection
                 sel2 => rs2_sel, -- rs2 selection
                 sel3 => "00000",
@@ -230,8 +282,8 @@ architecture Structural of cpu is
             );
         regs_in_mux_in(0) <= ALU_res; -- ALU result input
         regs_in_mux_in(1) <= PC_inc_sig; -- Incremented PC input
-        regs_in_mux_in(2) <= datain; -- Memory input
-        regs_in_mux_in(3) <= (others => '0'); -- Buffer input, placeholder for future use
+        regs_in_mux_in(2) <= mem_regs_datain_sig; -- Should be replaced with mux between memory and buffer
+        regs_in_mux_in(3) <= (others => '0'); -- SHOULD ALWAYS BE 0 for the BRANCH isntr
 
         AUIPC_or_branch: MUX
             generic map(
@@ -247,6 +299,18 @@ architecture Structural of cpu is
 
 
         -------------------CTRL---------------------
+         FSM_inst: FSM
+            port map(
+                clk => clk,
+                rst => rst,
+                RW_op => RW_op, -- Read/Write operation signal, set to '1' for write operations
+                mem_en => mem_wen_FSM, -- Memory enable signal for write operation
+                reg_en => regs_wen, -- Register enable signal for write operation
+                PC_en => PC_wen, -- PC enable signal for write operation
+                instr_en => instr_wen, -- Instruction enable signal for write operation
+                write_buffer_en => open -- Write buffer enable signal for write operation
+            );
+
         instr_reg_inst: reg
             generic map(
                 w => 32,
@@ -255,16 +319,16 @@ architecture Structural of cpu is
             port map(
                 rst => rst,
                 clk => clk,
-                en => '1', --This should be fine, because we take an instruction every clock cycle
+                en => instr_wen, --This should be fine, because we take an instruction every clock cycle
                 datain => instrin,
                 dataout => instr 
             );
         instr_decoder_inst: instr_dec
             port map(
                 reg_wen => open, -- Connect to appropriate signals
-                buffer_wen => open,
                 instr_wen => open,
                 PC_wen => open,
+                buffer_wen => buffer_wen_sig, -- Connect to memory write enable signal
                 funct3 => funct3, -- Connect to ALU result selector
                 adder_sp_sel => adder_sp_sel, -- Connect to adder
                 imm_sel => imm_sel, -- Connect to immediate selection
@@ -279,17 +343,19 @@ architecture Structural of cpu is
                 instr => instr, -- Connect the instruction input
                 --branch_sel => branch_sel, -- Connect to branch selector
                 regs_in_sel => regs_in_sel, -- Connect to register input selection
-                AUIPC_or_branch_sel => AUIPC_or_branch_sel -- Connect to AUIPC or branch selector
+                AUIPC_or_branch_sel => AUIPC_or_branch_sel, -- Connect to AUIPC or branch selector
+                R => R_sig, -- Read signal, not used in this example
+                W => W_sig -- Write signal, not used in this example
             );     
         PC_inst: reg
             generic map(
                 w => 32,
-                rising => false
+                rising => true
             )
             port map(
                 rst => rst,
                 clk => clk,
-                en => '1', -- Enable the PC register
+                en => PC_wen, -- Enable the PC register
                 datain => PC_in_sig, -- Placeholder for PC input
                 dataout => PC_sig -- Output not used in this example
             );  
@@ -313,15 +379,94 @@ architecture Structural of cpu is
             PC_branch_mux_in(1) <= adder_res; 
         
         --------------------MEM--------------------
+        -- buffer_reg_inst: reg
+        --     generic map(
+        --         w => 32,
+        --         rising => true
+        --     )
+        --     port map(
+        --         rst => rst,
+        --         clk => clk,
+        --         en => buffer_wen_sig, -- Enable the buffer register
+        --         datain => r2,
+        --         dataout => dataout
+        --     );
+        -- buffer_addr_reg_inst: reg
+        --     generic map(
+        --         w => 32,
+        --         rising => true
+        --     )
+        --     port map(
+        --         rst => rst,
+        --         clk => clk,
+        --         en => buffer_wen_sig, -- Enable the buffer address register
+        --         datain => adder_res, 
+        --         dataout => addrout
+        --     );
+
+        --TODO: SLICE DATAIN TO SUPPORT MISSALIGNED LOADS
+        mem_datain_mux: MUX
+            generic map(
+                N => 3 -- 1 input for the MUX
+            )
+            port map(
+                sel => funct3, -- Select signal for the MUX
+                datain => mem_datain_mux_in, -- Placeholder for memory address output
+                dataout =>  mem_regs_datain_sig-- Output not used in this example
+            );
+       
+        --a process to control memory writing, special sequential element
+        
+        mem_byte_signext_inst: signext
+            generic map(
+                w => 8 -- Width of the byte to sign-extend
+            )
+            port map(
+                imm => datain(7 downto 0),
+                imm_extended => mem_datain_mux_in(0) -- Sign-extended output
+            );
+        mem_half_signext_inst: signext
+            generic map(
+                w => 16 -- Width of the half-word to sign-extend
+            )
+            port map(
+                imm => datain(15 downto 0),
+                imm_extended => mem_datain_mux_in(1) -- Sign-extended output
+            );
+        mem_datain_mux_in(2) <= datain; -- this is for LOAD WORD
+
+        mem_byte_zeroext_inst: zeroext
+            generic map(
+                w => 8 -- Width of the byte to zero-extend
+            )
+            port map(
+                imm => datain(7 downto 0),
+                imm_extended => mem_datain_mux_in(4) -- Zero-extended output
+            );
+        mem_half_zeroext_inst: zeroext
+            generic map(
+                w => 16 -- Width of the half-word to zero-extend
+            )
+            port map(
+                imm => datain(15 downto 0),
+                imm_extended => mem_datain_mux_in(5) -- Zero-extended output
+            );
+
+        -- process(clk)
+        -- begin
+        --     if falling_edge(clk) then
+        --         mem_wen <= buffer_wen_sig; -- Memory write enable signal
+        --     end if;
+        -- end process;
         
         addrPC <= PC_sig; -- Connect the Program Counter to the memory address input
-       
-        
-
-
+        addrout <= adder_res; -- Connect the memory address output to the ALU adder result
+        dataout <= r2; --TODO: Check this hardwiring
+        RW_op <= R_sig or W_sig; -- Read/Write operation signal, set to '1' for write operations
+        mem_wen <= mem_wen_FSM and W_sig; -- Memory write enable signal, controlled by FSM and write operation signal
 
         -------------------- Simulation-only instruction trace output --------------------
-        -- synthesis translate_off
+    -- synthesis translate_off
         sim_trace: if SIMULATION generate
             process(instr)
             begin

@@ -67,7 +67,7 @@ begin
         reg_inst: REG
             generic map (
                 w => 32,
-                rising => false  -- they are written at the end of the cycle
+                rising => true  -- they are written at the end of the cycle
             )
             port map (
                 clk => clk,

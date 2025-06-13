@@ -15,11 +15,17 @@ add_files RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd
 add_files RTLBoriSoC.srcs/sources_1/new/cpu.vhd
 add_files RTLBoriSoC.srcs/sources_1/new/reg.vhd
 add_files RTLBoriSoC.srcs/sources_1/new/ANDf.vhd
-add_files RTLBoriSoC.srcs/sources_1/new/ANDf.vhd
 add_files RTLBoriSoC.srcs/sources_1/new/mem.vhd
 add_files RTLBoriSoC.srcs/sources_1/new/mem_pack.vhd
 add_files RTLBoriSoC.srcs/sources_1/new/SRf.vhd
+add_files RTLBoriSoC.srcs/sources_1/new/INCf.vhd
 add_files RTLBoriSoC.srcs/sources_1/new/regs.vhd
+
+add_files RTLBoriSoC.srcs/sources_1/new/cmpf.vhd
+add_files RTLBoriSoC.srcs/sources_1/new/cmpUf.vhd
+
+add_files RTLBoriSoC.srcs/sources_1/new/FSM.vhd
+
 
 
 add_files RTLBoriSoC.srcs/sources_1/new/SOC.vhd

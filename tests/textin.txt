@@ -1,0 +1,6 @@
+@ 0000
+ADDI x1 x1 040
+ADD x1 x1 x1
+SW x1 x0 100
+LW x2 x0 100
+LW x3 x0 100 ;lets see which of these ones work

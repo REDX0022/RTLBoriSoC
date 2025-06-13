@@ -1,289 +1,73 @@
 Time resolution is 1 ps
-Note: First byte of RAM: 00500113
-Time: 0 ps  Iteration: 0  Process: /testbench/UUT/mem_inst/sim_init_block/line__115  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mem.vhd
+Note: First byte of RAM: 001080B3
+Time: 0 ps  Iteration: 0  Process: /testbench/UUT/mem_inst/sim_init_block/line__76  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mem.vhd
 Note: Initializing memory and SoC
 Time: 0 ps  Iteration: 0  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Memory and SoC initialized, SoC started
 Time: 20 ns  Iteration: 0  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000000000000010010011
-Time: 30 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 30 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000010100000000000100010011
-Time: 40 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 40 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000000000000110010011
-Time: 50 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 50 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000100000000001000010011
-Time: 60 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 60 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000101000000000001010010011
-Time: 70 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 70 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000010100000000001100010011
-Time: 80 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 80 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000000000001110010011
-Time: 90 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 90 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000000000000000110011
-Time: 100 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 100 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000001000001100010001100011
-Time: 110 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 110 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000100011000000110110011
-Time: 120 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 120 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000100001000000010010011
-Time: 130 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 130 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111110000000001101111
-Time: 140 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 140 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000001000001100010001100011
-Time: 150 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 150 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000100011000000110110011
-Time: 160 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 160 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000100001000000010010011
-Time: 170 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 170 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111110000000001101111
-Time: 180 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 180 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000001000001100010001100011
-Time: 190 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 190 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000100011000000110110011
-Time: 200 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 200 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000100001000000010010011
-Time: 210 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 210 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111110000000001101111
-Time: 220 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 220 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000001000001100010001100011
-Time: 230 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 230 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000100011000000110110011
-Time: 240 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 240 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000100001000000010010011
-Time: 250 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 250 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111110000000001101111
-Time: 260 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 260 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000001000001100010001100011
-Time: 270 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 270 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000100011000000110110011
-Time: 280 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 280 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000100001000000010010011
-Time: 290 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 290 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111110000000001101111
-Time: 300 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 300 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000001000001100010001100011
-Time: 310 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 310 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000010000000001101111
-Time: 320 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 320 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000011000010000010011
-Time: 330 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 330 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000010000000001101111
-Time: 340 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 340 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000010100110110010001100011
-Time: 350 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 350 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111100101000001010010011
-Time: 360 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 360 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111110100000001101111
-Time: 370 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 370 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000010100110110010001100011
-Time: 380 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 380 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111100101000001010010011
-Time: 390 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 390 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111110100000001101111
-Time: 400 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 400 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000010100110110010001100011
-Time: 410 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 410 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111100101000001010010011
-Time: 420 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 420 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111110100000001101111
-Time: 430 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 430 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000010100110110010001100011
-Time: 440 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 440 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111100101000001010010011
-Time: 450 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 450 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111110100000001101111
-Time: 460 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 460 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000010100110110010001100011
-Time: 470 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 470 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111100101000001010010011
-Time: 480 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 480 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111111110100000001101111
-Time: 490 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 490 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000010100110110010001100011
-Time: 500 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 500 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000001100000001101111
-Time: 510 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 510 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000101000010010010011
-Time: 520 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 520 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000001100000001101111
-Time: 530 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 530 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000010000100000010001100011
-Time: 540 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 540 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00010010001100000000001110010011
-Time: 550 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 550 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000010000000001101111
-Time: 560 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 560 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000001000001001010001100011
-Time: 570 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 570 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000001000000000010100010011
-Time: 580 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 580 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000001000000001101111
-Time: 590 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 590 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000001100000001101111
-Time: 600 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 600 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 11111111111100000000010110010011
-Time: 610 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 610 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000100000000011000010011
-Time: 620 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 620 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000110001011100010001100011
-Time: 630 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 630 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00100010001000000000011010010011
-Time: 640 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 640 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000101101100101010001100011
-Time: 650 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 650 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00100010001000000000011100010011
-Time: 660 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 660 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000101101100110010001100011
-Time: 670 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 670 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00100010001000000000011110010011
-Time: 680 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 680 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000110001011111010001100011
-Time: 690 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 690 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00100010001000000000100000010011
-Time: 700 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 700 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Instruction fetched: 00000000000000000000000000010011
-Time: 710 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
-Note: Trace done
-Time: 710 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Note: Written to register: 04008093
+Time: 30 ns  Iteration: 1  Process: /testbench/UUT/cpu_inst/instr_reg_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Instruction fetched: 00000100000000001000000010010011
+Time: 40 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Note: Trace done
+Time: 40 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Note: Written to register: 00000040
+Time: 40 ns  Iteration: 4  Process: /testbench/UUT/cpu_inst/regs_inst/\gen_regs(1)\/reg_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Written to register: 00000004
+Time: 40 ns  Iteration: 4  Process: /testbench/UUT/cpu_inst/PC_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Written to register: 04008093
+Time: 50 ns  Iteration: 1  Process: /testbench/UUT/cpu_inst/instr_reg_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Instruction fetched: 00000100000000001000000010010011
+Time: 60 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Note: Trace done
+Time: 60 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Note: Written to register: 00000080
+Time: 60 ns  Iteration: 4  Process: /testbench/UUT/cpu_inst/regs_inst/\gen_regs(1)\/reg_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Written to register: 00000008
+Time: 60 ns  Iteration: 4  Process: /testbench/UUT/cpu_inst/PC_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Written to register: 001080B3
+Time: 70 ns  Iteration: 1  Process: /testbench/UUT/cpu_inst/instr_reg_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Instruction fetched: 00000000000100001000000010110011
+Time: 80 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Note: Trace done
+Time: 80 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Note: Written to register: 00000100
+Time: 80 ns  Iteration: 4  Process: /testbench/UUT/cpu_inst/regs_inst/\gen_regs(1)\/reg_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Written to register: 0000000C
+Time: 80 ns  Iteration: 4  Process: /testbench/UUT/cpu_inst/PC_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Written to register: 10102023
+Time: 90 ns  Iteration: 1  Process: /testbench/UUT/cpu_inst/instr_reg_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Instruction fetched: 00010000000100000010000000100011
+Time: 100 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Note: Trace done
+Time: 100 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Note: Written to register: 00000010
+Time: 100 ns  Iteration: 4  Process: /testbench/UUT/cpu_inst/PC_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Written to register: 10002103
+Time: 110 ns  Iteration: 1  Process: /testbench/UUT/cpu_inst/instr_reg_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Instruction fetched: 00010000000000000010000100000011
+Time: 120 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Note: Trace done
+Time: 120 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Note: Written to register: 00000000
+Time: 120 ns  Iteration: 4  Process: /testbench/UUT/cpu_inst/regs_inst/\gen_regs(2)\/reg_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Written to register: 00000014
+Time: 120 ns  Iteration: 4  Process: /testbench/UUT/cpu_inst/PC_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Written to register: 10002183
+Time: 130 ns  Iteration: 1  Process: /testbench/UUT/cpu_inst/instr_reg_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Instruction fetched: 00010000000000000010000110000011
+Time: 140 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Note: Trace done
+Time: 140 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Note: Written to register: 00000000
+Time: 140 ns  Iteration: 4  Process: /testbench/UUT/cpu_inst/regs_inst/\gen_regs(3)\/reg_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Written to register: 00000018
+Time: 140 ns  Iteration: 4  Process: /testbench/UUT/cpu_inst/PC_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
+Note: Written to register: 00000000
+Time: 150 ns  Iteration: 1  Process: /testbench/UUT/cpu_inst/instr_reg_inst/rising_proc/line__28  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd
 Note: Instruction fetched: 00000000000000000000000000000000
-Time: 720 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Time: 160 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Unknown instruction fetched, exiting testbench: 00000000000000000000000000000000
-Time: 720 ns  Iteration: 12  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Time: 160 ns  Iteration: 3  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
 Note: Testbench completed.
-Time: 730 ns  Iteration: 0  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd
+Time: 170 ns  Iteration: 0  Process: /testbench/line__86  File: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.sim/sim_1/testbench.vhd

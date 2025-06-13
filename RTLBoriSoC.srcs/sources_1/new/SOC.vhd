@@ -39,7 +39,8 @@ architecture Structural of SOC is
             dataout   : out std_logic_vector(31 downto 0);
             datain    : in std_logic_vector(31 downto 0);
             instrin : in std_logic_vector(31 downto 0); -- Input instruction
-            addrPC   : out std_logic_vector(31 downto 0) -- Address for PC    
+            addrPC   : out std_logic_vector(31 downto 0); -- Address for PC    
+            mem_wen : out std_logic := '0' -- Memory write enable signal
             
             -- synthesis translate_off
             ;
@@ -74,6 +75,7 @@ architecture Structural of SOC is
     end component;
 
     -- Internal signals to connect CPU and MEM
+    signal mem_wen_sig : std_logic := '0'; -- Memory write enable signal
     signal addr_sig    : std_logic_vector(31 downto 0) := (others => '0');
     signal dataout_sig : std_logic_vector(31 downto 0) := (others => '0');
     signal datain_sig  : std_logic_vector(31 downto 0) := (others => '0');
@@ -82,6 +84,7 @@ architecture Structural of SOC is
 
     -- synthesis translate_off
     signal sim_instr_sig : std_logic_vector(31 downto 0);
+
     -- synthesis translate_on
 
 begin
@@ -97,7 +100,8 @@ begin
             dataout   => datain_sig,
             datain    => dataout_sig,
             instrin   => instrout_sig, -- Input instruction
-            addrPC   => addrPC_sig -- Address for PC
+            addrPC   => addrPC_sig, -- Address for PC
+            mem_wen => mem_wen_sig
             -- synthesis translate_off
             ,
             sim_instr => sim_instr_sig,
@@ -113,7 +117,7 @@ begin
         )
         port map (
             clk      => clk,
-            en       => '0', --disable memory writes for now
+            en       => mem_wen_sig, --disable memory writes for now
             addr     => addr_sig,
             datain   => datain_sig,
             dataout  => dataout_sig,

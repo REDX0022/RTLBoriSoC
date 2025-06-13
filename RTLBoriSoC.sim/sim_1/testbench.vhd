@@ -126,33 +126,29 @@ architecture TB of testbench is
             -- synthesis translate_off
             report "Memory and SoC initialized, SoC started"; 
             --synthesis translate_on
-            -- Start the first instruction
+            -- Start the first instructions
             --Make the trace look nice
             write(l, trace_header);
             writeline(trace_f, l);
             test_loop: loop
-                --Implement clock for HERE and start rising and falling edge
+                --Implement clock here, 2 cycles per instruction
+                clk <= '1';
+                wait for 5 ns; -- Clock high time
+                clk <= '0';
+                wait for 5 ns; -- Clock low time
                 clk <= '1';
                 wait for 5 ns; -- Clock high time
                 clk <= '0';
                 wait for 5 ns; -- Clock low time
                 --CPU done
-                
                 wait for 0 ns;
                 wait for 0 ns;
-                wait for 0 ns;
-                wait for 0 ns;
-                wait for 0 ns;
-                wait for 0 ns;
+                PC_trace <= to_bitvector(PC_trace_slv)(15 downto 0); --PC is taken at thse wrong time so we adjust it
                 instr_trace <= to_bitvector(instr_trace_slv);
                 regs_trace <= vector_array_to_regs(regs_trace_slv); 
-                PC_trace <= slice_msb(to_bitvector(PC_trace_slv)(15 downto 0)+X"FFFC"); --PC is taken at the wrong time so we adjust it
-                wait for 0 ns;
-                wait for 0 ns;
-                wait for 0 ns;
-                wait for 0 ns;
-                wait for 0 ns;
-                wait for 0 ns;
+                wait for 0 ns; -- Wait for the next instruction to be fetched
+
+                
                 report "Instruction fetched: " & bitvec_to_bitstring(instr_trace);
                 
                 -- Now do your trace/logging

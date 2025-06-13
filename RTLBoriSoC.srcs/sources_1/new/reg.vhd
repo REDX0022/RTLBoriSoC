@@ -2,6 +2,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+library work;
+use work.def_pack.all;
+
 
 entity reg is
     generic(
@@ -18,7 +21,7 @@ entity reg is
 end entity;
 
 architecture RTL of reg is
-    signal sto: std_logic_vector(w-1 downto 0);
+    signal sto: std_logic_vector(w-1 downto 0) := (others => '0');
 begin
 
     rising_proc: if rising generate
@@ -28,6 +31,9 @@ begin
                 sto <= (others => '0');
             elsif rising_edge(clk) then
                 if en = '1' then
+                    --synthesis translate_off
+                    report "Written to register: " & bitvec_to_hex_string(to_bitvector(datain));
+                    -- synthesis translate_on
                     sto <= datain;
                 end if;
             end if;
