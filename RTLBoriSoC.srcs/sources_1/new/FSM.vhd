@@ -25,6 +25,7 @@ entity FSM is
         rst: in std_logic; -- Reset signal
         mem_en : out std_logic := '0'; -- Memory enable signal for write operation
         reg_en : out std_logic := '0'; -- Register enable signal for write operation
+        decoded_en : out std_logic := '0'; -- Decoded enable signal for write operation
         PC_en : out std_logic := '0'; -- PC enable signasl for write operation
         instr_en : out std_logic := '0'; -- Instruction enable signal for write operation
         write_buffer_en : out std_logic := '0'; -- Write buffer enable signal for write operation
@@ -34,15 +35,14 @@ end entity;
 
 architecture RTL of FSM is
 
-    signal state: integer range 0 to 3 := 0;
-    signal next_state: integer range 0 to 3;
+    -- States: 0 = Init, 1 = Fetch, 2 = Decode, 3 = Execute, 4 = RW/Fetch, 5 = RW Decode
+    signal state: integer range 0 to 5 := 0;
+    signal next_state: integer range 0 to 5;
 
-    -- Registered outputs
     signal mem_en_r, reg_en_r, PC_en_r, instr_en_r, write_buffer_en_r: std_logic := '0';
 
 begin
 
-    -- Output assignments
     mem_en          <= mem_en_r;
     reg_en          <= reg_en_r;
     PC_en           <= PC_en_r;
@@ -57,14 +57,18 @@ begin
                 next_state <= 1;
             when 1 => -- Fetch instruction
                 next_state <= 2;
-            when 2 => -- Decode and Execute
+            when 2 => -- Decode
+                next_state <= 3;
+            when 3 => -- Execute
                 if RW_op = '1' then
-                    next_state <= 3;
+                    next_state <= 4; -- Go to RW/Fetch if memory op
                 else
-                    next_state <= 1;
+                    next_state <= 1; -- Otherwise, back to Fetch
                 end if;
-            when 3 => -- RW and fetch state
-                next_state <= 2;
+            when 4 => -- RW/Fetch (memory access + fetch next instr)
+                next_state <= 5; -- Go to RW Decode
+            when 5 => -- RW Decode (decode for instr after memory op)
+                next_state <= 3; -- Go to Execute for next instruction
             when others =>
                 next_state <= 0;
         end case;
@@ -83,29 +87,46 @@ begin
         elsif rising_edge(clk) then
             state <= next_state;
 
-            -- Registered outputs based on next_state (look-ahead)
             case next_state is
-                when 1 => -- Fetch instruction state
+                when 1 => -- Fetch instruction
                     mem_en_r          <= '0';
                     reg_en_r          <= '0';
+                    decoded_en        <= '0';
                     PC_en_r           <= '0';
                     instr_en_r        <= '1';
                     write_buffer_en_r <= '0';
-                when 2 => -- Decode and Execute
+                when 2 => -- Decode
+                    mem_en_r          <= '0';
+                    reg_en_r          <= '0';
+                    decoded_en        <= '1'; -- Latch decoded values
+                    PC_en_r           <= '0';
+                    instr_en_r        <= '0';
+                    write_buffer_en_r <= '0';
+                when 3 => -- Execute
                     mem_en_r          <= '0';
                     reg_en_r          <= '1';
+                    decoded_en        <= '0';
                     PC_en_r           <= '1';
                     instr_en_r        <= '0';
                     write_buffer_en_r <= '0';
-                when 3 => -- RW and fetch state
+                when 4 => -- RW/Fetch (memory access + fetch next instr)
                     mem_en_r          <= '1';
-                    reg_en_r          <= '0';
+                    reg_en_r          <= '1'; -- or '0' for store, '1' for load, this is taken care of by the execute logic of the last instruction
+                    decoded_en        <= '0';
                     PC_en_r           <= '0';
                     instr_en_r        <= '1';
+                    write_buffer_en_r <= '0';
+                when 5 => -- RW Decode (decode for instr after memory op)
+                    mem_en_r          <= '1'; -- Keep memory enabled
+                    reg_en_r          <= '1'; -- Enable register write for load
+                    decoded_en        <= '1'; -- Latch decoded values for next instruction
+                    PC_en_r           <= '0';
+                    instr_en_r        <= '0';
                     write_buffer_en_r <= '0';
                 when others =>
                     mem_en_r          <= '0';
                     reg_en_r          <= '0';
+                    decoded_en        <= '0';
                     PC_en_r           <= '0';
                     instr_en_r        <= '0';
                     write_buffer_en_r <= '0';

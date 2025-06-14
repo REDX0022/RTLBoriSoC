@@ -3,12 +3,12 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Sat Jun 14 14:47:57 2025
-# Process ID         : 28100
-# Current directory  : C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1
-# Command line       : vivado.exe -log SOC.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SOC.tcl
-# Log file           : C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/SOC.vds
-# Journal file       : C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1\vivado.jou
+# Start of session at: Sat Jun 14 14:35:38 2025
+# Process ID         : 10008
+# Current directory  : C:/Users/ceran/Documents/RTLBoriSoC
+# Command line       : vivado.exe -mode batch -source .\synth_project.tcl
+# Log file           : C:/Users/ceran/Documents/RTLBoriSoC/vivado.log
+# Journal file       : C:/Users/ceran/Documents/RTLBoriSoC\vivado.jou
 # Running On         : DESKTOP-2D1SHBR
 # Platform           : Windows Server 2016 or Windows 10
 # Operating System   : 22621
@@ -17,12 +17,90 @@
 # CPU Physical cores : 6
 # CPU Logical cores  : 12
 # Host memory        : 17086 MB
-# Swap memory        : 1726 MB
-# Total Virtual      : 18812 MB
-# Available Virtual  : 3190 MB
+# Swap memory        : 1312 MB
+# Total Virtual      : 18398 MB
+# Available Virtual  : 3218 MB
 #-----------------------------------------------------------
+source {.\synth_project.tcl}
+# open_project RTLBoriSoC.xpr
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+open_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 621.895 ; gain = 193.090
+# add_files RTLBoriSoC.srcs/sources_1/new/adder.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/adder.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/MUX.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/MUX1.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX1.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/signext.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/zeroext.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/SLLf.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SLLf.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/ORf.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ORf.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/XORf.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/XORf.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/ANDf.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ANDf.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/cpu.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/reg.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/ANDf.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ANDf.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/mem.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mem.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/mem_pack.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mem_pack.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/SRf.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SRf.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/INCf.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/INCf.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/regs.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/cmpf.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cmpf.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/cmpUf.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cmpUf.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/FSM.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/FSM.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# add_files RTLBoriSoC.srcs/sources_1/new/SOC.vhd
+WARNING: [filemgmt 56-12] File 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SOC.vhd' cannot be added to the project because it already exists in the project, skipping this file
+# set_property source_mgmt_mode DisplayOnly [current_project]
+# set_property top SOC [get_filesets sources_1]
+# reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/utils_1/imports/synth_1/MUX.dcp with file C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/SOC.dcp
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1
+
+# launch_runs synth_1 -jobs 12
+[Sat Jun 14 14:35:54 2025] Launched synth_1...
+Run output will be captured here: C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/runme.log
+# wait_on_run synth_1
+[Sat Jun 14 14:35:54 2025] Waiting for synth_1 to finish...
+
+*** Running vivado
+    with args -log SOC.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SOC.tcl
+
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Sat Jun 14 14:35:58 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
 source SOC.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 618.438 ; gain = 188.082
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 619.082 ; gain = 189.980
 Command: read_checkpoint -auto_incremental -incremental C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/utils_1/imports/synth_1/MUX.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/utils_1/imports/synth_1/MUX.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -34,9 +112,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 6408
+INFO: [Synth 8-7075] Helper process launched with PID 30480
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1098.453 ; gain = 467.508
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1098.152 ; gain = 467.566
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-9222] cannot call impure function 'tokenize' from within pure function 'init_mem' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/init_pack.vhd:53]
 INFO: [Synth 8-638] synthesizing module 'SOC' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SOC.vhd:28]
@@ -334,19 +412,19 @@ WARNING: [Synth 8-7129] Port op[2] in module ALUdp is either unconnected or has 
 WARNING: [Synth 8-7129] Port op[1] in module ALUdp is either unconnected or has no load
 WARNING: [Synth 8-7129] Port op[0] in module ALUdp is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1214.258 ; gain = 583.312
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 1215.070 ; gain = 584.484
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1214.258 ; gain = 583.312
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1215.070 ; gain = 584.484
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
----------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1214.258 ; gain = 583.312
----------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 1215.070 ; gain = 584.484
+---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'FSM'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
@@ -359,9 +437,10 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'FSM'
                  iSTATE2 |                              101 |                              101
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'FSM'
+WARNING: [Synth 8-327] inferring latch for variable 'funct7_reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:76]
 WARNING: [Synth 8-327] inferring latch for variable 'AUIPC_or_branch_sel_reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:83]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1214.258 ; gain = 583.312
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1215.070 ; gain = 584.484
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -415,22 +494,29 @@ WARNING: [Synth 8-7129] Port op[0] in module ALUdp is either unconnected or has 
 WARNING: [Synth 8-3332] Sequential element (FSM_sequential_state_reg[2]) is unused and will be removed from module FSM.
 WARNING: [Synth 8-3332] Sequential element (FSM_sequential_state_reg[1]) is unused and will be removed from module FSM.
 WARNING: [Synth 8-3332] Sequential element (FSM_sequential_state_reg[0]) is unused and will be removed from module FSM.
+WARNING: [Synth 8-3332] Sequential element (funct7_reg[6]) is unused and will be removed from module instr_dec.
+WARNING: [Synth 8-3332] Sequential element (funct7_reg[5]) is unused and will be removed from module instr_dec.
+WARNING: [Synth 8-3332] Sequential element (funct7_reg[4]) is unused and will be removed from module instr_dec.
+WARNING: [Synth 8-3332] Sequential element (funct7_reg[3]) is unused and will be removed from module instr_dec.
+WARNING: [Synth 8-3332] Sequential element (funct7_reg[2]) is unused and will be removed from module instr_dec.
+WARNING: [Synth 8-3332] Sequential element (funct7_reg[1]) is unused and will be removed from module instr_dec.
+WARNING: [Synth 8-3332] Sequential element (funct7_reg[0]) is unused and will be removed from module instr_dec.
 WARNING: [Synth 8-3332] Sequential element (AUIPC_or_branch_sel_reg) is unused and will be removed from module instr_dec.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1380.094 ; gain = 749.148
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:29 . Memory (MB): peak = 1384.039 ; gain = 753.453
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1394.883 ; gain = 763.938
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:30 . Memory (MB): peak = 1399.770 ; gain = 769.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1394.883 ; gain = 763.938
+Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:30 . Memory (MB): peak = 1399.770 ; gain = 769.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -448,37 +534,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:35 . Memory (MB): peak = 1597.605 ; gain = 967.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:35 . Memory (MB): peak = 1597.605 ; gain = 967.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:35 . Memory (MB): peak = 1597.605 ; gain = 967.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:35 . Memory (MB): peak = 1597.605 ; gain = 967.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:35 . Memory (MB): peak = 1597.605 ; gain = 967.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:35 . Memory (MB): peak = 1597.605 ; gain = 967.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -503,24 +589,29 @@ Report Instance Areas:
 |1     |top      |       |     0|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:35 . Memory (MB): peak = 1597.605 ; gain = 967.020
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 65 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
-Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
+Synthesis finished with 0 errors, 0 critical warnings and 73 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:35 . Memory (MB): peak = 1597.605 ; gain = 967.020
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:35 . Memory (MB): peak = 1597.605 ; gain = 967.020
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1594.043 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1598.645 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1720.500 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1723.582 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 Synth Design complete | Checksum: 417cc31e
 INFO: [Common 17-83] Releasing license: Synthesis
-150 Infos, 65 Warnings, 0 Critical Warnings and 0 Errors encountered.
+150 Infos, 73 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:25 . Memory (MB): peak = 1720.500 ; gain = 1096.918
+synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:46 . Memory (MB): peak = 1723.582 ; gain = 1099.223
 INFO: [Common 17-1381] The checkpoint 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/SOC.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file SOC_utilization_synth.rpt -pb SOC_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Jun 14 14:48:35 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat Jun 14 14:36:58 2025...
+[Sat Jun 14 14:36:59 2025] synth_1 finished
+wait_on_runs: Time (s): cpu = 00:00:00 ; elapsed = 00:01:05 . Memory (MB): peak = 625.531 ; gain = 0.000
+# report_timing_summary -file [current_run]/timing_summary.rpt
+ERROR: [Common 17-53] User Exception: No open design. Please open an elaborated, synthesized or implemented design before executing this command.
+INFO: [Common 17-206] Exiting Vivado at Sat Jun 14 14:36:59 2025...

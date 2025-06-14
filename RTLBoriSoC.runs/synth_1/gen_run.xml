@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1749585769" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/MUX.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1749905273" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/MUX.dcp">
+  <File Type="PA-TCL" Name="SOC.tcl"/>
   <File Type="REPORTS-TCL" Name="SOC_reports.tcl"/>
+  <File Type="RDS-RDS" Name="SOC.vds"/>
+  <File Type="RDS-PROPCONSTRS" Name="SOC_drc_synth.rpt"/>
   <File Type="RDS-UTIL" Name="SOC_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="SOC_utilization_synth.pb"/>
-  <File Type="PA-TCL" Name="SOC.tcl"/>
-  <File Type="RDS-RDS" Name="SOC.vds"/>
   <File Type="RDS-DCP" Name="SOC.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="SOC_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="SOC_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/MUX.vhd">
@@ -21,6 +24,18 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/ANDf.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/FSM.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/INCf.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -68,6 +83,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/SRf.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/XORf.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -75,6 +96,18 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/adder.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/cmpf.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/cmpuf.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -110,6 +143,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/regs.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/signext.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -130,14 +169,12 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/subtr.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSIMDIR/sim_1/testbench.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>

@@ -130,8 +130,28 @@ architecture TB of testbench is
             --Make the trace look nice
             write(l, trace_header);
             writeline(trace_f, l);
+
+            --we need to clock once for the init sequence
+            clk <= '1';
+            wait for 5 ns; -- Clock high time
+            clk <= '0';
+            wait for 5 ns; -- Clock low time
+            PC_trace <= to_bitvector(PC_trace_slv)(15 downto 0); --get the PC before it updates
+            clk <= '1';
+            wait for 5 ns; -- Clock high time
+            clk <= '0';
+            wait for 5 ns; -- Clock low time
+            clk <= '1';
+            wait for 5 ns; -- Clock high time
+            clk <= '0';
+            wait for 5 ns; -- Clock low time
             test_loop: loop
-                --Implement clock here, 2 cycles per instruction
+                --Implement clock here, 3 cycles per instruction
+                clk <= '1';
+                wait for 5 ns; -- Clock high time
+                clk <= '0';
+                wait for 5 ns; -- Clock low time
+                PC_trace <= to_bitvector(PC_trace_slv)(15 downto 0); --get the PC before it updates
                 clk <= '1';
                 wait for 5 ns; -- Clock high time
                 clk <= '0';
@@ -143,7 +163,6 @@ architecture TB of testbench is
                 --CPU done
                 wait for 0 ns;
                 wait for 0 ns;
-                PC_trace <= to_bitvector(PC_trace_slv)(15 downto 0); --PC is taken at thse wrong time so we adjust it
                 instr_trace <= to_bitvector(instr_trace_slv);
                 regs_trace <= vector_array_to_regs(regs_trace_slv); 
                 wait for 0 ns; -- Wait for the next instruction to be fetched

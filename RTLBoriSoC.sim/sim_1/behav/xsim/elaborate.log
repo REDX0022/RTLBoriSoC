@@ -4,9 +4,8 @@ Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 Running: F:/Vivado/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot testbench_behav xil_defaultlib.testbench -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mnemonic_pack.vhd:86]
 WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mnemonic_pack.vhd:81]
-WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mnemonic_pack.vhd:119]
+WARNING: [VRFC 10-8759] array bounds of function return type do not match array bounds of function return value [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mnemonic_pack.vhd:86]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -44,6 +43,7 @@ Compiling architecture rtl of entity xil_defaultlib.MUX [\MUX(n=5)\]
 Compiling architecture rtl of entity xil_defaultlib.regs [regs_default]
 Compiling architecture rtl of entity xil_defaultlib.FSM [fsm_default]
 Compiling architecture rtl of entity xil_defaultlib.instr_dec [instr_dec_default]
+Compiling architecture rtl of entity xil_defaultlib.reg [\reg(w=56,rising=true)\]
 Compiling architecture rtl of entity xil_defaultlib.INCf [incf_default]
 Compiling architecture rtl of entity xil_defaultlib.signext [\signext(w=8)\]
 Compiling architecture rtl of entity xil_defaultlib.signext [\signext(w=16)\]

@@ -10,10 +10,11 @@ use work.MUX_types.all; -- Import the MUX types package
 --this does not work at the end, we need a double input double output ALU
 entity instr_dec is
     port(
-        reg_wen: out std_logic;
-        instr_wen: out std_logic;
-        PC_wen: out std_logic;
-        buffer_wen : out std_logic;
+        instr: in std_logic_vector(31 downto 0); -- Input instruction
+        --reg_wen: out std_logic; --we dont need this because we will write 0 to 0 so we are fine
+        --instr_wen: out std_logic; --comes from the fsm
+        --PC_wen: out std_logic; --comes from the fsm
+        --buffer_wen : out std_logic; -- does not exist anymore, we will write to memory directly
         funct3: out std_logic_vector(2 downto 0);
         adder_sp_sel: out std_logic;
         imm_sel: out std_logic_vector(1 downto 0);
@@ -23,14 +24,14 @@ entity instr_dec is
         rd_sel: out std_logic_vector(4 downto 0);
         funct7: out std_logic_vector(6 downto 0);
         imm: out std_logic_vector(19 downto 0);
-        branch_in: in std_logic;
         branch_out: out std_logic;
-        instr: in std_logic_vector(31 downto 0); -- Input instruction
         --branch_sel: in std_logic_vector(2 downto 0); -- Branch selectoro
         regs_in_sel: out std_logic_vector(1 downto 0); -- this chooses between ALU_res, INC(PC), memory, and buffer
         AUIPC_or_branch_sel: out std_logic;
         R : out std_logic; -- Read operation signal
-        W : out std_logic -- Write operation signal
+        W : out std_logic; -- Write operation signal
+        B : out std_logic; -- Branch operation signal
+        J : out std_logic -- Jump operation signal // 57 total bits, this encoding is very bad information density baddd
     );
     
     end entity;
@@ -58,8 +59,7 @@ architecture RTL of instr_dec is
     signal BRANCH_sig: std_logic;
     signal LOAD_sig: std_logic;
     signal STORE_sig: std_logic;
-    signal J: std_logic;
-    signal B: std_logic;
+    
     begin
     decode_opcode: process(instr) is
         begin
@@ -83,7 +83,7 @@ architecture RTL of instr_dec is
                     AUIPC_or_branch_sel <= '0'; -- ALU result
                     J <= '0'; -- Not a jump instruction
                     B <= '0'; -- Not a branch instruction
-                    buffer_wen <= '0'; -- No memory write for OP instructions
+                    
                     R <= '0'; -- Read operation for OP
                     W <= '0'; -- Write operation for OP
 
@@ -93,18 +93,14 @@ architecture RTL of instr_dec is
                     rs2_sel     <= (others => '0');
                     op2_sel     <= '1'; -- ALU second operand is immediate
                     imm         <= X"00" & instr(31 downto 20); -- this is quick might be inferred wrong
-                    --funct7      <= instr(31 downto 25); -- just the 30 bit is used for subtr and SRA
+                    funct7      <= (others => '0'); -- just the 30 bit is used for subtr and SRA
                     imm_sel     <= "00"; -- 12 bit signed
                     adder_sp_sel<= '0'; 
                     funct3 <= instr(14 downto 12); -- this is made such that we dont need a translator for OP and OPIMM
-                    reg_wen     <= '0';
-                    instr_wen   <= '0';
-                    PC_wen      <= '0';
                     regs_in_sel <= "00"; -- ALU result
                     AUIPC_or_branch_sel <= '0'; -- ALU result
                     J <= '0'; -- Not a jump instruction
                     B <= '0'; -- Not a branch instruction
-                    buffer_wen <= '0'; -- No memory write for OPIMM instructions
                     R <= '0'; -- Read operation for OPIMM
                     W <= '0'; -- Write operation for OPIMM
                 when LUI_code =>
@@ -121,7 +117,6 @@ architecture RTL of instr_dec is
                     regs_in_sel <= "00"; -- ALU result
                     J <= '0'; -- Not a jump instruction
                     B <= '0'; -- Not a branch instruction
-                    buffer_wen <= '0'; -- No memory write for LUI instructions
                     R <= '0'; -- Read operation for LUI
                     W <= '0'; -- Write operation for LUI
                 when AIUPC_code =>
@@ -138,7 +133,6 @@ architecture RTL of instr_dec is
                     regs_in_sel <= "00"; -- ALU result
                     J <= '0'; -- Not a jump instruction
                     B <= '0'; -- Not a branch instruction
-                    buffer_wen <= '0'; -- No memory write for AIUPC instructions
                     R <= '0'; -- Read operation for AIUPC
                     W <= '0'; -- Write operation for AIUPC
                 --regs_in_mux_in(0) <= ALU_res; -- ALU result input
@@ -159,7 +153,6 @@ architecture RTL of instr_dec is
                     regs_in_sel <= "01"; -- PC incremented
                     J <= '1'; -- Set J for unconditional jump
                     B <= '0'; -- Not a branch instruction
-                    buffer_wen <= '0'; -- No memory write for JAL instructions
                     R <= '0'; -- Read operation for JAL
                     W <= '0'; -- Write operation for JAL
                 when JALR_code =>
@@ -176,7 +169,6 @@ architecture RTL of instr_dec is
                     regs_in_sel <= "01"; -- PC incremented
                     J <= '1'; -- Set J for unconditional jump
                     B <= '0'; -- Not a branch instruction
-                    buffer_wen <= '0'; -- No memory write for JALR instructions
                     R <= '0'; -- Read operation for JALR
                     W <= '0'; -- Write operation for JALR
                 when BRANCH_code =>
@@ -206,11 +198,10 @@ architecture RTL of instr_dec is
                     imm_sel     <= "00"; -- 12 bit signed immediate
                     op2_sel    <= '1'; -- ALU second operand is immediate
                     adder_sp_sel <= '0'; -- Use ALsU for address calculation
-                    regs_in_sel <= "11"; -- Memory input
+                    regs_in_sel <= "10"; -- Memory input
                     AUIPC_or_branch_sel <= '0'; 
                     J <= '0'; -- Not a jump instruction
                     B <= '0'; -- Not a branch instruction
-                    buffer_wen <= '0'; -- Memory write enabled for load instructions
                     R <= '1'; -- Read operation for LOAD
                     W <= '0'; -- Write operation for LOAD, we will write to register
                 when STORE_code =>
@@ -227,7 +218,6 @@ architecture RTL of instr_dec is
                     AUIPC_or_branch_sel <= '0'; 
                     J <= '0'; -- Not a jump instruction
                     B <= '0'; -- Not a branch instruction
-                    buffer_wen <= '1'; -- Memory write enabled for store instructions
                     R <= '0'; -- Read operation for STORE
                     W <= '1'; -- Write operation for STORE, we will write to memory
 
@@ -245,12 +235,11 @@ architecture RTL of instr_dec is
                     AUIPC_or_branch_sel <= '0'; -- ALU result
                     J <= '0'; -- Not a jump instruction
                     B <= '0'; -- Not a branch instruction
-                    buffer_wen <= '0'; -- No memory write for unrecognized instructions
                     R <= '0'; -- Read operation for unrecognized instructions
                     W <= '0'; -- Write operation for unrecognized instructions
 
             end case;
 
     end process; 
-    branch_out <= (branch_in and B) or J; --branch if conditional and success check, or just unconditional jumps
+    
 end architecture RTL;

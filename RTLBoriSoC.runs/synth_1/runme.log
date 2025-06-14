@@ -8,12 +8,12 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Thu Jun 12 22:12:56 2025
+  **** Start of session at: Sat Jun 14 14:47:57 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source SOC.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 618.812 ; gain = 189.844
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 618.438 ; gain = 188.082
 Command: read_checkpoint -auto_incremental -incremental C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/utils_1/imports/synth_1/MUX.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/utils_1/imports/synth_1/MUX.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -25,9 +25,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 12636
+INFO: [Synth 8-7075] Helper process launched with PID 6408
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1097.824 ; gain = 468.688
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1098.453 ; gain = 467.508
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-9222] cannot call impure function 'tokenize' from within pure function 'init_mem' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/init_pack.vhd:53]
 INFO: [Synth 8-638] synthesizing module 'SOC' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SOC.vhd:28]
@@ -35,7 +35,7 @@ INFO: [Synth 8-638] synthesizing module 'SOC' [C:/Users/ceran/Documents/RTLBoriS
 INFO: [Synth 8-3491] module 'cpu' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:11' bound to instance 'cpu_inst' of component 'cpu' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SOC.vhd:92]
 INFO: [Synth 8-638] synthesizing module 'cpu' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:34]
 	Parameter SIMULATION bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'ALUdp' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:23' bound to instance 'ALUdp_inst' of component 'ALUdp' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:231]
+INFO: [Synth 8-3491] module 'ALUdp' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:23' bound to instance 'ALUdp_inst' of component 'ALUdp' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:244]
 INFO: [Synth 8-638] synthesizing module 'ALUdp' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:43]
 	Parameter N bound to: 3 - type: integer 
 INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'mux_res' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:207]
@@ -84,9 +84,9 @@ INFO: [Synth 8-256] done synthesizing module 'adder' (0#1) [C:/Users/ceran/Docum
 INFO: [Synth 8-3491] module 'cmpf' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cmpf.vhd:11' bound to instance 'cmpf_inst' of component 'cmpf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:337]
 INFO: [Synth 8-638] synthesizing module 'cmpf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cmpf.vhd:20]
 INFO: [Synth 8-256] done synthesizing module 'cmpf' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cmpf.vhd:20]
-INFO: [Synth 8-3491] module 'cmpuf' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cmpUf.vhd:10' bound to instance 'cmpUf_inst' of component 'cmpuf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:345]
-INFO: [Synth 8-638] synthesizing module 'cmpuf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cmpUf.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'cmpuf' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cmpUf.vhd:18]
+INFO: [Synth 8-3491] module 'cmpuf' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cmpuf.vhd:10' bound to instance 'cmpUf_inst' of component 'cmpuf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:345]
+INFO: [Synth 8-638] synthesizing module 'cmpuf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cmpuf.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'cmpuf' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cmpuf.vhd:18]
 	Parameter N bound to: 3 - type: integer 
 INFO: [Synth 8-3491] module 'MUX1' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX1.vhd:9' bound to instance 'branch_mux' of component 'MUX1' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:352]
 INFO: [Synth 8-638] synthesizing module 'MUX1' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX1.vhd:20]
@@ -108,108 +108,108 @@ INFO: [Synth 8-3491] module 'ORf' declared at 'C:/Users/ceran/Documents/RTLBoriS
 INFO: [Synth 8-638] synthesizing module 'ORf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ORf.vhd:13]
 INFO: [Synth 8-256] done synthesizing module 'ORf' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ORf.vhd:13]
 INFO: [Synth 8-256] done synthesizing module 'ALUdp' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/ALUdp.vhd:43]
-INFO: [Synth 8-3491] module 'regs' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:9' bound to instance 'regs_inst' of component 'REGS' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:250]
+INFO: [Synth 8-3491] module 'regs' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:9' bound to instance 'regs_inst' of component 'REGS' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:263]
 INFO: [Synth 8-638] synthesizing module 'regs' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:31]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
-INFO: [Synth 8-638] synthesizing module '\reg ' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:20]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-638] synthesizing module '\reg ' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:23]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-256] done synthesizing module '\reg ' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:20]
+INFO: [Synth 8-256] done synthesizing module '\reg ' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:23]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:67]
 	Parameter N bound to: 5 - type: integer 
 INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'mux1_inst' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:89]
 INFO: [Synth 8-638] synthesizing module 'MUX__parameterized5' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:39]
@@ -221,46 +221,52 @@ INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriS
 INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'mux3_inst' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:109]
 INFO: [Synth 8-256] done synthesizing module 'regs' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/regs.vhd:31]
 	Parameter N bound to: 2 - type: integer 
-INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'regs_in_mux' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:269]
+INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'regs_in_mux' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:282]
 	Parameter N bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'AUIPC_or_branch' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:283]
-INFO: [Synth 8-3491] module 'FSM' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/FSM.vhd:22' bound to instance 'FSM_inst' of component 'FSM' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:297]
+INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'AUIPC_or_branch' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:296]
+INFO: [Synth 8-3491] module 'FSM' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/FSM.vhd:22' bound to instance 'FSM_inst' of component 'FSM' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:310]
 INFO: [Synth 8-638] synthesizing module 'FSM' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/FSM.vhd:36]
 INFO: [Synth 8-256] done synthesizing module 'FSM' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/FSM.vhd:36]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'instr_reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:309]
-INFO: [Synth 8-3491] module 'instr_dec' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:11' bound to instance 'instr_decoder_inst' of component 'instr_dec' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:321]
-INFO: [Synth 8-638] synthesizing module 'instr_dec' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:38]
-INFO: [Synth 8-256] done synthesizing module 'instr_dec' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:38]
-WARNING: [Synth 8-547] port direction mismatch for port 'RW_op' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:321]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'instr_reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:322]
+INFO: [Synth 8-3491] module 'instr_dec' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:11' bound to instance 'instr_decoder_inst' of component 'instr_dec' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:334]
+INFO: [Synth 8-638] synthesizing module 'instr_dec' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'instr_dec' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:40]
+	Parameter w bound to: 56 - type: integer 
+	Parameter rising bound to: 1 - type: bool 
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'decoded_reg_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:358]
+INFO: [Synth 8-638] synthesizing module 'reg__parameterized2' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:23]
+	Parameter w bound to: 56 - type: integer 
+	Parameter rising bound to: 1 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'reg__parameterized2' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:23]
 	Parameter w bound to: 32 - type: integer 
 	Parameter rising bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:6' bound to instance 'PC_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:344]
-INFO: [Synth 8-3491] module 'INCf' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/INCf.vhd:6' bound to instance 'INCf_inst' of component 'INCf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:357]
+INFO: [Synth 8-3491] module 'reg' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/reg.vhd:9' bound to instance 'PC_inst' of component 'reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:401]
+INFO: [Synth 8-3491] module 'INCf' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/INCf.vhd:6' bound to instance 'INCf_inst' of component 'INCf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:414]
 INFO: [Synth 8-638] synthesizing module 'INCf' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/INCf.vhd:13]
 INFO: [Synth 8-256] done synthesizing module 'INCf' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/INCf.vhd:13]
 	Parameter N bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'PC_branch_mux' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:363]
+INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'PC_branch_mux' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:420]
 	Parameter N bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'mem_datain_mux' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:402]
+INFO: [Synth 8-3491] module 'MUX' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/MUX.vhd:28' bound to instance 'mem_datain_mux' of component 'MUX' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:459]
 	Parameter w bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'signext' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:7' bound to instance 'mem_byte_signext_inst' of component 'signext' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:414]
+INFO: [Synth 8-3491] module 'signext' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:7' bound to instance 'mem_byte_signext_inst' of component 'signext' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:471]
 INFO: [Synth 8-638] synthesizing module 'signext__parameterized3' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:17]
 	Parameter w bound to: 8 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'signext__parameterized3' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:17]
 	Parameter w bound to: 16 - type: integer 
-INFO: [Synth 8-3491] module 'signext' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:7' bound to instance 'mem_half_signext_inst' of component 'signext' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:422]
+INFO: [Synth 8-3491] module 'signext' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:7' bound to instance 'mem_half_signext_inst' of component 'signext' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:479]
 INFO: [Synth 8-638] synthesizing module 'signext__parameterized5' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:17]
 	Parameter w bound to: 16 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'signext__parameterized5' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/signext.vhd:17]
 	Parameter w bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'zeroext' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd:6' bound to instance 'mem_byte_zeroext_inst' of component 'zeroext' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:432]
+INFO: [Synth 8-3491] module 'zeroext' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd:6' bound to instance 'mem_byte_zeroext_inst' of component 'zeroext' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:489]
 INFO: [Synth 8-638] synthesizing module 'zeroext__parameterized3' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd:16]
 	Parameter w bound to: 8 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'zeroext__parameterized3' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd:16]
 	Parameter w bound to: 16 - type: integer 
-INFO: [Synth 8-3491] module 'zeroext' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd:6' bound to instance 'mem_half_zeroext_inst' of component 'zeroext' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:440]
+INFO: [Synth 8-3491] module 'zeroext' declared at 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd:6' bound to instance 'mem_half_zeroext_inst' of component 'zeroext' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:497]
 INFO: [Synth 8-638] synthesizing module 'zeroext__parameterized5' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd:16]
 	Parameter w bound to: 16 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'zeroext__parameterized5' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/zeroext.vhd:16]
@@ -271,10 +277,7 @@ INFO: [Synth 8-638] synthesizing module 'mem' [C:/Users/ceran/Documents/RTLBoriS
 	Parameter SIMULATION bound to: 0 - type: bool 
 INFO: [Synth 8-256] done synthesizing module 'mem' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/mem.vhd:40]
 INFO: [Synth 8-256] done synthesizing module 'SOC' (0#1) [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/SOC.vhd:28]
-WARNING: [Synth 8-6014] Unused sequential element PC_en_reg was removed.  [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/FSM.vhd:71]
-WARNING: [Synth 8-6014] Unused sequential element write_buffer_en_reg was removed.  [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/FSM.vhd:73]
-WARNING: [Synth 8-3848] Net addrout in module/entity cpu does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:18]
-WARNING: [Synth 8-3848] Net dataout in module/entity cpu does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/cpu.vhd:19]
+WARNING: [Synth 8-3848] Net branch_out in module/entity instr_dec does not have driver. [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:27]
 WARNING: [Synth 8-7129] Port addr[31] in module mem is either unconnected or has no load
 WARNING: [Synth 8-7129] Port addr[30] in module mem is either unconnected or has no load
 WARNING: [Synth 8-7129] Port addr[29] in module mem is either unconnected or has no load
@@ -311,7 +314,7 @@ WARNING: [Synth 8-7129] Port addrPC[17] in module mem is either unconnected or h
 WARNING: [Synth 8-7129] Port addrPC[16] in module mem is either unconnected or has no load
 WARNING: [Synth 8-7129] Port addrPC[1] in module mem is either unconnected or has no load
 WARNING: [Synth 8-7129] Port addrPC[0] in module mem is either unconnected or has no load
-WARNING: [Synth 8-7129] Port rst in module FSM is either unconnected or has no load
+WARNING: [Synth 8-7129] Port branch_out in module instr_dec is either unconnected or has no load
 WARNING: [Synth 8-7129] Port op[8] in module ALUdp is either unconnected or has no load
 WARNING: [Synth 8-7129] Port op[7] in module ALUdp is either unconnected or has no load
 WARNING: [Synth 8-7129] Port op[6] in module ALUdp is either unconnected or has no load
@@ -321,81 +324,35 @@ WARNING: [Synth 8-7129] Port op[3] in module ALUdp is either unconnected or has 
 WARNING: [Synth 8-7129] Port op[2] in module ALUdp is either unconnected or has no load
 WARNING: [Synth 8-7129] Port op[1] in module ALUdp is either unconnected or has no load
 WARNING: [Synth 8-7129] Port op[0] in module ALUdp is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[31] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[30] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[29] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[28] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[27] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[26] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[25] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[24] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[23] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[22] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[21] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[20] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[19] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[18] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[17] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[16] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[15] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[14] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[13] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[12] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[11] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[10] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[9] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[8] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[7] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[6] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[5] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[4] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[3] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[2] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[1] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port addrout[0] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[31] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[30] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[29] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[28] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[27] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[26] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[25] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[24] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[23] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[22] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[21] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[20] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[19] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[18] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[17] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[16] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[15] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[14] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[13] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[12] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[11] in module cpu is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dataout[10] in module cpu is either unconnected or has no load
-INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1214.879 ; gain = 585.742
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1214.258 ; gain = 583.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1214.879 ; gain = 585.742
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1214.258 ; gain = 583.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1214.258 ; gain = 583.312
+---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1214.879 ; gain = 585.742
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'FSM'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              000 |                              000
+                 iSTATE3 |                              001 |                              001
+                 iSTATE0 |                              010 |                              010
+                 iSTATE1 |                              011 |                              011
+                 iSTATE4 |                              100 |                              100
+                 iSTATE2 |                              101 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'FSM'
+WARNING: [Synth 8-327] inferring latch for variable 'AUIPC_or_branch_sel_reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:83]
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-327] inferring latch for variable 'reg_wen_reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:97]
-WARNING: [Synth 8-327] inferring latch for variable 'buffer_wen_reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:85]
-WARNING: [Synth 8-327] inferring latch for variable 'funct7_reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:75]
-WARNING: [Synth 8-327] inferring latch for variable 'AUIPC_or_branch_sel_reg' [C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.srcs/sources_1/new/instr_dec.vhd:82]
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1214.879 ; gain = 585.742
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1214.258 ; gain = 583.312
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -408,16 +365,17 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
 +---Registers : 
+	               56 Bit    Registers := 1     
 	               32 Bit    Registers := 36    
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 4     
+	                1 Bit    Registers := 6     
 +---RAMs : 
 	             512K Bit	(16384 X 32 bit)          RAMs := 1     
 +---Muxes : 
 	   2 Input   32 Bit        Muxes := 7     
 	   4 Input   32 Bit        Muxes := 2     
-	   5 Input    2 Bit        Muxes := 1     
-	   4 Input    1 Bit        Muxes := 4     
+	   2 Input    3 Bit        Muxes := 2     
+	   6 Input    3 Bit        Muxes := 2     
+	   6 Input    1 Bit        Muxes := 5     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -435,31 +393,35 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-3332] Sequential element (reg_wen_reg) is unused and will be removed from module instr_dec.
-WARNING: [Synth 8-3332] Sequential element (buffer_wen_reg) is unused and will be removed from module instr_dec.
-WARNING: [Synth 8-3332] Sequential element (funct7_reg[6]) is unused and will be removed from module instr_dec.
-WARNING: [Synth 8-3332] Sequential element (funct7_reg[5]) is unused and will be removed from module instr_dec.
-WARNING: [Synth 8-3332] Sequential element (funct7_reg[4]) is unused and will be removed from module instr_dec.
-WARNING: [Synth 8-3332] Sequential element (funct7_reg[3]) is unused and will be removed from module instr_dec.
-WARNING: [Synth 8-3332] Sequential element (funct7_reg[2]) is unused and will be removed from module instr_dec.
-WARNING: [Synth 8-3332] Sequential element (funct7_reg[1]) is unused and will be removed from module instr_dec.
-WARNING: [Synth 8-3332] Sequential element (funct7_reg[0]) is unused and will be removed from module instr_dec.
+WARNING: [Synth 8-7129] Port branch_out in module instr_dec is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[8] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[7] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[6] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[5] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[4] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[3] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[2] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[1] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port op[0] in module ALUdp is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_state_reg[2]) is unused and will be removed from module FSM.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_state_reg[1]) is unused and will be removed from module FSM.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_state_reg[0]) is unused and will be removed from module FSM.
 WARNING: [Synth 8-3332] Sequential element (AUIPC_or_branch_sel_reg) is unused and will be removed from module instr_dec.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:26 . Memory (MB): peak = 1374.730 ; gain = 745.594
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1380.094 ; gain = 749.148
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:27 . Memory (MB): peak = 1390.504 ; gain = 761.367
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1394.883 ; gain = 763.938
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:27 . Memory (MB): peak = 1390.504 ; gain = 761.367
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1394.883 ; gain = 763.938
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -477,37 +439,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.871 ; gain = 959.734
+Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.871 ; gain = 959.734
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.871 ; gain = 959.734
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.871 ; gain = 959.734
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.871 ; gain = 959.734
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.871 ; gain = 959.734
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -532,24 +494,24 @@ Report Instance Areas:
 |1     |top      |       |     0|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.871 ; gain = 959.734
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 205 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.871 ; gain = 959.734
-Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1588.871 ; gain = 959.734
+Synthesis finished with 0 errors, 0 critical warnings and 65 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
+Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1593.039 ; gain = 962.094
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1589.914 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1594.043 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1715.465 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1720.500 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 Synth Design complete | Checksum: 417cc31e
 INFO: [Common 17-83] Releasing license: Synthesis
-146 Infos, 122 Warnings, 0 Critical Warnings and 0 Errors encountered.
+150 Infos, 65 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:36 . Memory (MB): peak = 1715.465 ; gain = 1091.648
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:25 . Memory (MB): peak = 1720.500 ; gain = 1096.918
 INFO: [Common 17-1381] The checkpoint 'C:/Users/ceran/Documents/RTLBoriSoC/RTLBoriSoC.runs/synth_1/SOC.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file SOC_utilization_synth.rpt -pb SOC_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Jun 12 22:13:46 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat Jun 14 14:48:35 2025...
